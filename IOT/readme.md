@@ -2,7 +2,7 @@
 
  # lecture 1
 
-->  embedded systems : Scale down computer system which is designed to perform a specific task.
+	->  embedded systems : Scale down computer system which is designed to perform a specific task.
 
  		calculators, cell phones etc.
  		NFC -> Near field application
@@ -63,15 +63,16 @@
 
 
 
- INTRODUCTION TO ATmega 16 (we'll work on 8 also)
+ 	INTRODUCTION TO ATmega 16 (we'll work on 8 also)
 
- 	AT 		--->	ATMEL		(company name)
- 	mega 	--->	category between Tiny and super complex (X-mega) microcontroller.	--->	used for testing purposes
- 	16		--->	means 16kB is size given for code  
+	 	AT 		--->	ATMEL		(company name)
+	 	mega 	--->	category between Tiny and super complex (X-mega) microcontroller.	--->	used for testing purposes
+	 	16		--->	means 16kB is size given for code  
 
  
- Types of microcontroller : 
- 	1. Through hole	type
- 	2. SMD (surface mounted) type
- 
+	 Types of microcontroller :
+	  
+	 	1. Through hole	type
+	 	2. SMD (surface mounted) type
+	 
  
