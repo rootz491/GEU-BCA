@@ -76,3 +76,59 @@
 	 	2. SMD (surface mounted) type
 	 
  
+
+# lecture 2
+
+    *   ATmega16 is 8 bit controller.
+    *   frequency -> from 1Mz to 8Mz 
+    *   usual application use low frequencies (1Mz) like controlling light 
+    bulb!
+    *   for accuracy and real time projects (safety bags) we use high frequency (8Mz)
+
+
+    PORTS -
+
+        *   There are total 4 ports.
+        *   every port can have 8 pits. 
+                        ----------------
+        *   there are extra pins also :  (have to learn it myself)
+            1. Reset pin -> to reset controller
+            2. GRD pin -> ground connection (there are two grounds internally connected to each other)
+            3. VCC pin -> power supply
+            4. XTAL 1 & XTAL 2 -> to extend frequency upto 16Mz (at max)
+                    Oscillator (CRYSTAL) is used to generate frequency.
+                    connect (small value) oscillator between these two pins
+            5. AREF -> to give reference to ground internally
+
+    GLOWING FIRST BULB      ->  refer to image
+
+    DDR register ->     to declare the type of port
+      full-form  ->     Data direction port
+
+
+    ### standard format of code
+
+            1. #include -> include all header files
+            2. Variables/constant declaration and initialization 
+            3. Function definition and body
+            4. main() ->  functuion start
+            5. port initialization
+            6. Port declaration
+            7. while(1)  ->  to get continuous output!
+
+    SAMPLE CODE  -----   blink LED  
+
+        #include<mega16.h>
+        void main() {
+            PORTC = 0b00010000;   (port initialization)
+            DDTC = 0b00010000;
+            while(1) {
+                PORTC.4=1;   (1 for supply)
+            }
+        }
+
+    SOFTWARES
+
+        *   Codevision - to convert code into machine lang. 
+        *   Proteus    - to debug the code. before deploying into hardware like hardware simulator. 
+
