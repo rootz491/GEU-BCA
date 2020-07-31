@@ -1,5 +1,5 @@
 
-#here i'll be uploading all lecture notes that i will attend 
+# here i'll be uploading all lecture notes that i will attend 
     
     -> most likely they will be live lectures only.
     -> just like summary of what's going on!

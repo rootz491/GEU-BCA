@@ -79,8 +79,10 @@
 
 # lecture 2
 
-    *   ATmega16 is 8 bit controller.
+    *   ATmega16 is 8 bit micro-controller.
     *   frequency -> from 1Mz to 8Mz 
+    *   it have 1kB of SRAM.
+    *   512 bytes of EEPROM
     *   usual application use low frequencies (1Mz) like controlling light 
     bulb!
     *   for accuracy and real time projects (safety bags) we use high frequency (8Mz)
