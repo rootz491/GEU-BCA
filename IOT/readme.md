@@ -134,3 +134,84 @@
         *   Codevision - to convert code into machine lang. 
         *   Proteus    - to debug the code. before deploying into hardware like hardware simulator. 
 
+# lecture 3
+
+    today we are going to have some hands-on practice.
+    
+    1. software [PROTEUS] for simulating the hardware.
+        
+    in above menu, go to LIBRARY -> pick parts -> dialog board appear -> search for component by component
+
+        *   use the below keywords to find the correct hardware simulation.
+                keyword :   atmega16  (microcontroller)
+                            red/blue led
+                            res (resistor)
+        *   while using resistor, change its default value from 10k to 220 ohm.
+        *   use ground from left menu -> Terminals (=) .   
+        *   now connect wiring
+                    
+                    first circuit is completed!
+
+    2.  software [CODEVISION] for coding.
+
+    steps to setup for the project:
+        *   create seperate folder for new projects.
+        *   open codevision
+        *   FILE -> NEW -> PROJECT -> confirm for project -> select chip type
+        *   new screen appear ->    select CHIP (ATmega16) 
+                              ->    CLOCK (choose frequency)
+                              ->    chick on PROGRAM (next to FILE)
+                              ->    select folder. (and give project_name) and save.
+                              ->    again, type same project name and save
+                              ->    one more time :)
+                              ->    now sample code file will appear.
+                              ->    close all files accept navigator and C file.
+                              ->    clean the C file. (code from scratch)
+                              
+        ---------------------- START CODING ----------------------    
+'''
+        #include<mega16.h>
+        void main() {
+            PORTC = 0b10000000;     //  initialize port
+            DDRC = 0b000000001;     //  declare port
+            while(1) {
+                PORTC.0=1;
+            }
+        }
+'''
+
+    ->  from above menu, click on 'build all project files'.
+    ->  Dialog box appear (will show some info and error )
+    ->  if error exist, 'ERROR DETAILS' will appear on side-screen.
+    ->  in same dialog box, look at bottom, will show the size of file in byte and %age.
+
+    ->  projectname > Debug > exe : Here is the HEX file for the code.
+
+    ->  double click on IC.
+    ->  select hex file. on PROGRAM FILE
+    ->  configure Frequency.
+
+    FINALLY, Run the simulation by clicking on left-bottom button (triangle). And bulb will glow!
+
+
+    GLOW LED at PC0, PA0, PB4 ports. < CODE >
+
+'''
+>             #include<mega16.h>
+>             void main() {
+>                   PORTA=0b00000000;
+>                   DDRA=0b00000001;
+>                   PORTB=0b00000000;
+>                   DDRB=0b00010000;
+>                   PORTC=0b00000000;
+>                   DDRC=0b00000001;
+>                   while(1) {
+>                       PORTA.0=1;
+>                       PORTB.4=1;
+>                       PORTC.0=1;
+>                   }
+>             }
+'''
+
+
+ASSIGNMENT -> PD0 : LED, PD3 : LED, PC1 : LED, PC2 : LED, PC3 : LED, PD1 : LED, PA7 : LED   { GLOW THE LED }

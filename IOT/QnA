@@ -1,0 +1,27 @@
+Q/A
+Questions from slide-share  (AVR programming)
+
+
+1.	Configure PB as output port
+->	DDRB=0xFF;	  or	0b11111111;
+
+2.	Configure PC as tri-stated input and read value into variable x 
+->	DDRC=0x00;
+	PORTC=0x00;
+	x=PINC;
+
+3.	Configure PA as pullup input and read lower nibble into variable y and higher nibble into variable x.
+->	DDRA=0x00;
+	PORTA=0xFF;
+	y=PINA & 0b00001111;
+	x=PINA & 0b11110000 / 2^4
+
+4.	Make higher nibble of PA as pullup inputs and lower nibble as output.
+->	DDRA=0x0F;
+	PORTA=0xF0;
+
+5.	Read, only input pins of above mensioned port and get the binary number present on those pins into variable x.
+->	x=(PINA & 0b11110000) / 2^4
+
+6.	Write four bit number 0x5 onto output pins of above mensioned port.
+->	PORTA=PORTA|0x05;
