@@ -140,15 +140,15 @@
     
     1. software [PROTEUS] for simulating the hardware.
         
-    in above menu, go to LIBRARY -> pick parts -> dialog board appear -> search for component by component
+    in above menu, go to LIBRARY -> pick parts -> dialog board appear -> search for component by corresponding keyword:
 
         *   use the below keywords to find the correct hardware simulation.
                 keyword :   atmega16  (microcontroller)
                             red/blue led
                             res (resistor)
         *   while using resistor, change its default value from 10k to 220 ohm.
-        *   use ground from left menu -> Terminals (=) .   
-        *   now connect wiring
+        *   use 'ground' from left menu -> Terminals (=).   
+        *   now connect wirings.
                     
                     first circuit is completed!
 
@@ -160,19 +160,20 @@
         *   FILE -> NEW -> PROJECT -> confirm for project -> select chip type
         *   new screen appear ->    select CHIP (ATmega16) 
                               ->    CLOCK (choose frequency)
-                              ->    chick on PROGRAM (next to FILE)
+                              ->    click on PROGRAM (next to FILE)
                               ->    select folder. (and give project_name) and save.
                               ->    again, type same project name and save
                               ->    one more time :)
                               ->    now sample code file will appear.
                               ->    close all files accept navigator and C file.
                               ->    clean the C file. (code from scratch)
-                              
+
+                         
         ---------------------- START CODING ----------------------    
 '''
         #include<mega16.h>
         void main() {
-            PORTC = 0b10000000;     //  initialize port
+            PORTC = 0b00000001;     //  initialize port
             DDRC = 0b000000001;     //  declare port
             while(1) {
                 PORTC.0=1;
