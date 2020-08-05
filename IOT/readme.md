@@ -215,4 +215,33 @@
 '''
 
 
-ASSIGNMENT -> PD0 : LED, PD3 : LED, PC1 : LED, PC2 : LED, PC3 : LED, PD1 : LED, PA7 : LED   { GLOW THE LED }
+ASSIGNMENT -> PD0 : LED, PD3 : LED, PC1 : LED, PC2 : LED, PC3 : LED, PD1 : LED, PA7 : LED   { GLOW THE LED } // Assignment done!
+
+# lecture 3
+
+    delay.h -> 
+
+        delay_ms() -> counts in mili seconds.
+        delay_us() -> counts in micro seconds.
+
+    SWITCH concept - 
+        
+        states:
+            A  = 1
+            ~A = 0
+
+    ->  switch is input type device.
+    ->  we will use active low switch.
+    ->  current follow least resistive path.
+
+    active high switch -> current flows when switch is on.
+    active low switch  -> current flows when switch is off.
+
+    ->  use keyword 'BUTTON' to find switch
+    ->  initialize port as high because it is 'ACTIVE HIGH SWITCH' 
+    ->  on press, switch will changed to '0' so current will flow and led will glow fine.
+    
+
+    De-bouncing: fluctuation of 1 and 0 even after pressing the switch. 
+        SOLn. : Use while loop instead of 'if condition'
+        
