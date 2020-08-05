@@ -217,7 +217,7 @@
 
 ASSIGNMENT -> PD0 : LED, PD3 : LED, PC1 : LED, PC2 : LED, PC3 : LED, PD1 : LED, PA7 : LED   { GLOW THE LED } // Assignment done!
 
-# lecture 3
+# lecture 4
 
     delay.h -> 
 
@@ -244,4 +244,3 @@ ASSIGNMENT -> PD0 : LED, PD3 : LED, PC1 : LED, PC2 : LED, PC3 : LED, PD1 : LED, 
 
     De-bouncing: fluctuation of 1 and 0 even after pressing the switch. 
         SOLn. : Use while loop instead of 'if condition'
-        
