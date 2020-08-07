@@ -244,3 +244,28 @@ ASSIGNMENT -> PD0 : LED, PD3 : LED, PC1 : LED, PC2 : LED, PC3 : LED, PD1 : LED, 
 
     De-bouncing: fluctuation of 1 and 0 even after pressing the switch. 
         SOLn. : Use while loop instead of 'if condition'
+
+# lecture 5
+
+    ->  Arduino use ATmega328P
+
+    MOTORS
+
+        ->  we will use DC motor.
+        ->  It is output type device.
+        ->  we have to identify ourselves that in which direction motor moves clockwise and anti-clockwise.
+        ->  keyword: 'DC MOTOR' to find motor,  choose type 'ACTIVE'.
+
+        *   simple code to RUN the motor clockwise: {one terminal of motor is connected to PORTC.0 and other terminal to GROUND}
+
+        '''
+        void main () {
+            PORTC=0b00000000;
+            DDRC=0b00000001;
+            while (1) {
+                PORTC.0=1;
+            }
+        }
+        '''
+
+        ->  assignment of some projects.
