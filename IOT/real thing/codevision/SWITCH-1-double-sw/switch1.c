@@ -1,0 +1,33 @@
+#include <mega16.h>
+
+void main(void) {
+    PORTA.1 = 0;
+    PORTB.4 = 0;
+    DDRA.1 = 1;
+    DDRB.4 = 1;
+    PORTC.1 = 1;
+    PORTD.2 = 1;
+    DDRC.1 = 0;
+    DDRD.2 = 0;
+    
+    while (1) {
+        while(PINC.1 == 0){
+            PORTA.1 = 1;   
+            if (PINC.1 == 1) {
+                PORTA.1 = 0;
+                break;        
+            }
+        }         
+        while(PIND.2 == 0) {
+            PORTB.4 = 1;    
+            if (PIND.2 == 1) {
+                PORTB.4 = 0;  
+                break;
+            }
+        }
+    //    PORTA.1 = 0;
+    //    PORTB.4 = 0;    
+    } 
+}
+
+// NOT WOKING PROPERLY !!!

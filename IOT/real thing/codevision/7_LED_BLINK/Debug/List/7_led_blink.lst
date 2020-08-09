@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.1.30  D:\codevision\7_LED_BLINK\Debug\List\7_led_blink.asm Sun Aug 02 03:51:13 2020
+AVRASM ver. 2.1.30  D:\codevision\7_LED_BLINK\Debug\List\7_led_blink.asm Wed Aug 05 04:41:31 2020
 
                  
                  
@@ -1192,12 +1192,12 @@ AVRASM ver. 2.1.30  D:\codevision\7_LED_BLINK\Debug\List\7_led_blink.asm Sun Aug
                  	.CSEG
                  _main:
                  ; .FSTART _main
-                 ; 0000 0004     PORTD=0b00000000;
+                 ; 0000 0004     PORTD=0x00;
 000045 e0e0      	LDI  R30,LOW(0)
 000046 bbe2      	OUT  0x12,R30
-                 ; 0000 0005     PORTC=0b00000000;
+                 ; 0000 0005     PORTC=0x00;
 000047 bbe5      	OUT  0x15,R30
-                 ; 0000 0006     PORTA=0b00000000;
+                 ; 0000 0006     PORTA=0x00;
 000048 bbeb      	OUT  0x1B,R30
                  ; 0000 0007 
                  ; 0000 0008     DDRD=0b00001011;

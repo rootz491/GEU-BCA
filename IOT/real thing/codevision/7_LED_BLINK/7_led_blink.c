@@ -1,9 +1,9 @@
 #include <mega16.h>
 #include <delay.h>
 void main() {
-    PORTD=0b00000000;
-    PORTC=0b00000000;  
-    PORTA=0b00000000;
+    PORTD=0x00;
+    PORTC=0x00;  
+    PORTA=0x00;
 
     DDRD=0b00001011;    
     DDRC=0b00001110;

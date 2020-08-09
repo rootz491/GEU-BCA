@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.1.30  D:\codevision\LED_BLINK\Debug\List\led_blink.asm Sun Aug 02 01:28:32 2020
+AVRASM ver. 2.1.30  D:\codevision\LED_BLINK\Debug\List\led_blink.asm Fri Aug 07 19:20:03 2020
 
                  
                  
@@ -1192,27 +1192,22 @@ AVRASM ver. 2.1.30  D:\codevision\LED_BLINK\Debug\List\led_blink.asm Sun Aug 02 
                  	.CSEG
                  _main:
                  ; .FSTART _main
-                 ; 0000 0004     PORTC=0b00000001;
-000045 e0e1      	LDI  R30,LOW(1)
+                 ; 0000 0004     PORTC=0b00000000;
+000045 e0e0      	LDI  R30,LOW(0)
 000046 bbe5      	OUT  0x15,R30
-                 ; 0000 0005     PORTA=0xf0;
-000047 efe0      	LDI  R30,LOW(240)
-000048 bbeb      	OUT  0x1B,R30
+                 ; 0000 0005   //  PORTA=0xf0;
                  ; 0000 0006     DDRC.0=1;
-000049 9aa0      	SBI  0x14,0
-                 ; 0000 0007     DDRA.3=1;
-00004a 9ad3      	SBI  0x1A,3
+000047 9aa0      	SBI  0x14,0
+                 ; 0000 0007   //  DDRA.3=1;
                  ; 0000 0008     while (1) {
-                 _0x7:
+                 _0x5:
                  ; 0000 0009         PORTC.0=1;
-00004b 9aa8      	SBI  0x15,0
-                 ; 0000 000A         PORTA.3=1;
-00004c 9adb      	SBI  0x1B,3
-                 ; 0000 000B     }
-00004d cffd      	RJMP _0x7
-                 ; 0000 000C }
-                 _0xE:
-00004e cfff      	RJMP _0xE
+000048 9aa8      	SBI  0x15,0
+                 ; 0000 000A     }
+000049 cffe      	RJMP _0x5
+                 ; 0000 000B }
+                 _0xA:
+00004a cfff      	RJMP _0xA
                  ; .FEND
                  
                  	.CSEG
@@ -1241,7 +1236,7 @@ ATmega16 register use summary:
 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 r5 :   0 r6 :   0 r7 :   0 
 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 r13:   0 r14:   0 r15:   0 
 r16:   0 r17:   0 r18:   0 r19:   0 r20:   0 r21:   0 r22:   0 r23:   0 
-r24:   4 r25:   1 r26:   2 r27:   1 r28:   1 r29:   1 r30:  14 r31:   2 
+r24:   4 r25:   1 r26:   2 r27:   1 r28:   1 r29:   1 r30:  12 r31:   2 
 x  :   2 y  :   0 z  :   0 
 Registers used: 9 out of 35 (25.7%)
 
@@ -1256,12 +1251,12 @@ cbi   :   0 cbr   :   0 clc   :   0 clh   :   0 cli   :   1 cln   :   0
 clr   :   2 cls   :   0 clt   :   0 clv   :   0 clz   :   0 com   :   0 
 cp    :   0 cpc   :   0 cpi   :   0 cpse  :   0 dec   :   1 des   :   0 
 eor   :   0 fmul  :   0 fmuls :   0 fmulsu:   0 icall :   0 ijmp  :   0 
-in    :   0 inc   :   0 jmp   :  22 ld    :   0 ldd   :   0 ldi   :  12 
+in    :   0 inc   :   0 jmp   :  22 ld    :   0 ldd   :   0 ldi   :  11 
 lds   :   0 lpm   :   0 lsl   :   0 lsr   :   0 mov   :   0 movw  :   0 
 mul   :   0 muls  :   0 mulsu :   0 neg   :   0 nop   :   0 or    :   0 
-ori   :   0 out   :   8 pop   :   0 push  :   0 rcall :   0 ret   :   0 
+ori   :   0 out   :   7 pop   :   0 push  :   0 rcall :   0 ret   :   0 
 reti  :   0 rjmp  :   2 rol   :   0 ror   :   0 sbc   :   0 sbci  :   0 
-sbi   :   4 sbic  :   0 sbis  :   0 sbiw  :   1 sbr   :   0 sbrc  :   0 
+sbi   :   2 sbic  :   0 sbis  :   0 sbiw  :   1 sbr   :   0 sbrc  :   0 
 sbrs  :   0 sec   :   0 seh   :   0 sei   :   0 sen   :   0 ser   :   0 
 ses   :   0 set   :   0 sev   :   0 sez   :   0 sleep :   0 spm   :   0 
 st    :   2 std   :   0 sts   :   0 sub   :   0 subi  :   0 swap  :   0 
@@ -1271,7 +1266,7 @@ Instructions used: 11 out of 116 (9.5%)
 ATmega16 memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x00009e    158      0    158   16384   1.0%
+[.cseg] 0x000000 0x000096    150      0    150   16384   0.9%
 [.dseg] 0x000060 0x000160      0      0      0    1024   0.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 

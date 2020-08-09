@@ -1188,27 +1188,22 @@ __CLEAR_SRAM:
 	.CSEG
 _main:
 ; .FSTART _main
-; 0000 0004     PORTC=0b00000001;
-	LDI  R30,LOW(1)
+; 0000 0004     PORTC=0b00000000;
+	LDI  R30,LOW(0)
 	OUT  0x15,R30
-; 0000 0005     PORTA=0xf0;
-	LDI  R30,LOW(240)
-	OUT  0x1B,R30
+; 0000 0005   //  PORTA=0xf0;
 ; 0000 0006     DDRC.0=1;
 	SBI  0x14,0
-; 0000 0007     DDRA.3=1;
-	SBI  0x1A,3
+; 0000 0007   //  DDRA.3=1;
 ; 0000 0008     while (1) {
-_0x7:
+_0x5:
 ; 0000 0009         PORTC.0=1;
 	SBI  0x15,0
-; 0000 000A         PORTA.3=1;
-	SBI  0x1B,3
-; 0000 000B     }
-	RJMP _0x7
-; 0000 000C }
-_0xE:
-	RJMP _0xE
+; 0000 000A     }
+	RJMP _0x5
+; 0000 000B }
+_0xA:
+	RJMP _0xA
 ; .FEND
 
 	.CSEG
