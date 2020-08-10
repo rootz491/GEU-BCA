@@ -268,4 +268,36 @@ ASSIGNMENT -> PD0 : LED, PD3 : LED, PC1 : LED, PC2 : LED, PC3 : LED, PD1 : LED, 
         }
         '''
 
-        ->  assignment of some projects.
+        ->  assignment of some projects. // DONE
+
+# lecture 6
+
+    ->  old assignment explaination
+    ->  Elevator question + ASSIGNMENT 3 -> given
+    ->  INTRODUCTION to LED.
+
+        *   pin1 : VSS -> ground
+        *   pin2 : VCC -> power (+5v)
+        *   pin3 : VEE -> to control voltage supply (Potentiometer)
+             {It will help in setting CONTRAST by attaching to PIN3}
+        *   pin4 : RS  -> register select 
+                          to enable it -> make it 0 {activate instruction reg.}
+                          print char   -> make it 1 {activate char register} 
+        *   pin5 : R/W -> read  : 0  to the LCD
+                          write : 1
+        *   pin6 : E   -> to enable LCD {default shot with power (pin2)}
+        *   pin7-14 :   dataLines {D0 to D7} 
+                        two modes :  8 bit or 4 bit
+                        -> just 8 bit is faster, works same as 4 bits.
+                        -> we will generally use 4 bit.
+                        -> if use 8 bit, then 8 pins will be used. {tey not to use it}
+        *   pin15 : +ive {VCC}
+        *   pin16 : -ive {GRD}
+
+    ->  SENDING DATA to LED : 
+        *   we use 4 bit mode!
+        *   send LSB first.
+        *   send bit from right to left.
+
+
+
