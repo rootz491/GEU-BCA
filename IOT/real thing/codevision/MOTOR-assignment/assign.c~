@@ -16,7 +16,7 @@ void main() {
         }
         
         if (PIND.1==0 && counter > 0) {    
-             PORTC.0=1;
+            PORTC.0=1;
             while (counter > 0) {          
                 PORTC.2=1;
                 delay_ms(500);

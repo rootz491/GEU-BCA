@@ -1251,9 +1251,9 @@ _0x3:
 ; 0000 000D         if (PIND.0==0) {
 	SBIC 0x10,0
 	RJMP _0x6
-; 0000 000E             delay_ms(100);
-	LDI  R26,LOW(100)
-	LDI  R27,0
+; 0000 000E             delay_ms(300);
+	LDI  R26,LOW(300)
+	LDI  R27,HIGH(300)
 	RCALL _delay_ms
 ; 0000 000F             counter++;
 	MOVW R30,R4
@@ -1282,76 +1282,117 @@ _0xC:
 	BRGE _0xE
 ; 0000 0015                 PORTC.2=1;
 	SBI  0x15,2
-; 0000 0016                 delay_ms(500);
-	LDI  R26,LOW(500)
-	LDI  R27,HIGH(500)
+; 0000 0016 
+; 0000 0017                 delay_ms(225);
+	LDI  R26,LOW(225)
+	LDI  R27,0
 	RCALL _delay_ms
-; 0000 0017 
-; 0000 0018                 if (PIND.2==0) {
+; 0000 0018 
+; 0000 0019                 if (PIND.2==0) {
 	SBIC 0x10,2
 	RJMP _0x11
-; 0000 0019                     delay_ms(100);
-	RCALL SUBOPT_0x0
-; 0000 001A                     PORTC=0x00;
-; 0000 001B                     counter = 0;
-; 0000 001C                     break;
-	RJMP _0xE
-; 0000 001D                 }
-; 0000 001E 
-; 0000 001F                 PORTC.2=0;
-_0x11:
-	CBI  0x15,2
-; 0000 0020                 delay_ms(500);
-	LDI  R26,LOW(500)
-	LDI  R27,HIGH(500)
+; 0000 001A                     delay_ms(100);
+	LDI  R26,LOW(100)
+	LDI  R27,0
 	RCALL _delay_ms
-; 0000 0021 
-; 0000 0022                 if (PIND.2==0) {
-	SBIC 0x10,2
-	RJMP _0x14
-; 0000 0023                     delay_ms(100);
-	RCALL SUBOPT_0x0
-; 0000 0024                     PORTC=0x00;
-; 0000 0025                     counter = 0;
-; 0000 0026                     break;
+; 0000 001B                     break;
 	RJMP _0xE
-; 0000 0027                 }
-; 0000 0028 
-; 0000 0029                 counter-=2;
-_0x14:
+; 0000 001C                 }
+; 0000 001D 
+; 0000 001E                 delay_ms(225);
+_0x11:
+	LDI  R26,LOW(225)
+	LDI  R27,0
+	RCALL _delay_ms
+; 0000 001F 
+; 0000 0020                 if (PIND.2==0) {
+	SBIC 0x10,2
+	RJMP _0x12
+; 0000 0021                     delay_ms(100);
+	LDI  R26,LOW(100)
+	LDI  R27,0
+	RCALL _delay_ms
+; 0000 0022 
+; 0000 0023                     break;
+	RJMP _0xE
+; 0000 0024                 }
+; 0000 0025 
+; 0000 0026                 PORTC.2=0;
+_0x12:
+	CBI  0x15,2
+; 0000 0027 
+; 0000 0028                 delay_ms(225);
+	LDI  R26,LOW(225)
+	LDI  R27,0
+	RCALL _delay_ms
+; 0000 0029 
+; 0000 002A                 if (PIND.2==0) {
+	SBIC 0x10,2
+	RJMP _0x15
+; 0000 002B                     delay_ms(100);
+	LDI  R26,LOW(100)
+	LDI  R27,0
+	RCALL _delay_ms
+; 0000 002C                     break;
+	RJMP _0xE
+; 0000 002D                 }
+; 0000 002E 
+; 0000 002F                 delay_ms(225);
+_0x15:
+	LDI  R26,LOW(225)
+	LDI  R27,0
+	RCALL _delay_ms
+; 0000 0030 
+; 0000 0031                 if (PIND.2==0) {
+	SBIC 0x10,2
+	RJMP _0x16
+; 0000 0032                     delay_ms(100);
+	LDI  R26,LOW(100)
+	LDI  R27,0
+	RCALL _delay_ms
+; 0000 0033                     break;
+	RJMP _0xE
+; 0000 0034                 }
+; 0000 0035 
+; 0000 0036                 counter-=1;
+_0x16:
 	MOVW R30,R4
-	SBIW R30,2
+	SBIW R30,1
 	MOVW R4,R30
-; 0000 002A             }
+; 0000 0037             }
 	RJMP _0xC
 _0xE:
-; 0000 002B             PORTD.1=1;
+; 0000 0038             PORTD.1=1;
 	SBI  0x12,1
-; 0000 002C             PORTC.0=0;
-	CBI  0x15,0
-; 0000 002D         }
-; 0000 002E 
-; 0000 002F         if (PIND.2==0) {
-_0x7:
-	SBIS 0x10,2
-; 0000 0030             delay_ms(100);
+; 0000 0039 
+; 0000 003A             PORTC=0x00;
 	RCALL SUBOPT_0x0
-; 0000 0031             PORTC=0x00;
-; 0000 0032             counter = 0;
-; 0000 0033         }
-; 0000 0034     }
+; 0000 003B             counter = 0;
+; 0000 003C         }
+; 0000 003D 
+; 0000 003E         if (PIND.2==0) {
+_0x7:
+	SBIC 0x10,2
+	RJMP _0x19
+; 0000 003F             delay_ms(100);
+	LDI  R26,LOW(100)
+	LDI  R27,0
+	RCALL _delay_ms
+; 0000 0040             PORTC=0x00;
+	RCALL SUBOPT_0x0
+; 0000 0041             counter = 0;
+; 0000 0042         }
+; 0000 0043     }
+_0x19:
 	RJMP _0x3
-; 0000 0035 }
+; 0000 0044 }
 _0x1A:
 	RJMP _0x1A
 ; .FEND
 
 	.CSEG
-;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:10 WORDS
+;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
 SUBOPT_0x0:
-	LDI  R26,LOW(100)
-	LDI  R27,0
-	RCALL _delay_ms
 	LDI  R30,LOW(0)
 	OUT  0x15,R30
 	CLR  R4
