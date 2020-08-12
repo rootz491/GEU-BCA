@@ -1,0 +1,8 @@
+it needs you to install WinAVR first before using it
+----------------------------------------------------
+
+Windows driver for USB programmer
+-----------------------------------------------------
+
+1)Please use windriver_new for windows XP, vista versions.
+3)Use windriver_w7_64 for windows7 64 bit versions.
