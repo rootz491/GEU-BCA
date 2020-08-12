@@ -1,6 +1,6 @@
  IOT NOTES
 
- # lecture 1
+# lecture 1
 
 	->  embedded systems : Scale down computer system which is designed to perform a specific task.
 
@@ -298,6 +298,21 @@ ASSIGNMENT -> PD0 : LED, PD3 : LED, PC1 : LED, PC2 : LED, PC3 : LED, PD1 : LED, 
         *   we use 4 bit mode!
         *   send LSB first.
         *   send bit from right to left.
+
+# lecture 7 : doubt session 
+    
+    *   Switch
+            ->  Active high :   { PIN, GROUND(+res), SWITCH, POWER }
+                    default low (0)
+                    on press, high (1)
+            ->  Active low :    { PIN, POWER(+res), SWITCH, GROUND }
+                    default high (1)
+                    on press, low (0)
+            ->  Voltage divider rule:
+                    v1 = (V * R1)/(R1 + R2)
+
+            UART: universal asynchoronus recieve andd transmission protocol
+                ->  Protocol to work wirelessly in 99% of technologies!
 
 
 
