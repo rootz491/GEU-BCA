@@ -77,6 +77,7 @@
             5. port initialization
             6. Port declaration
             7. while(1)  ->  to get continuous output!
+    
     SAMPLE CODE  -----   blink LED  
 '''        #include<mega16.h>
             void main() {
@@ -254,5 +255,42 @@
     *   learning to connect pins of LCD to that of ATmega16.    ->  go to lecture 8 PFD.
     *   copy header files and goto : c > cvavreval > INC 
     *   ti select LCD : keyword - alpha  { choose 16x2 LCD }
-    
 
+# lecture 9
+    
+    *   Voting machine problem  -> go to PDFs
+            -----------------
+    *   LCD header files: details.
+        --> How to make header files.
+        --> STANDARD SYNTAX
+        --> hello.h     {HEADER FILE}
+    
+    '''
+            #ifndef _hello_h_
+            #define _hello_h_
+    
+            function prototype
+            function definition
+    
+            #endif
+    '''
+            ---------------------
+    *   example: switch1.h  ->  PORTC.0  {Switch 1}
+    
+    '''
+                #ifndef _switch1_h_
+                #define _switch1_h_
+                
+                void myswitch();
+                void myswitch() {
+                    PO
+                    RTC.0=1;
+                    DDRC.0=0;
+                }
+                
+                #endif
+    ''' 
+    ASSIGNMENTS :-
+        lcd_6d()       ->   create
+        lcd_max()      ->   max of two numbers  i.e.  lcd_max(1,5) return 5.
+        lcd_decimal()  ->   explain
