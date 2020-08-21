@@ -1,0 +1,22 @@
+SOFTWARE ENGINEERING
+
+*	free-ware software are free of cost, but only executable is given only {no source code} 
+	open source software are software with open source code given.
+
+*	'waterfall model', you have to specify all requirements in advance, 
+	No way back, 
+	it follow sequential model, 
+	it was first model. 
+		-> 	versions of waterfall model 
+
+*	RAD model:	
+		->	First take requirements from customer.
+		->	Make plan to meet the requirements.
+		->	divide product into multiple modules.
+		->	group developers into few team to work on specific model/modules.	
+ 	  	->	assign them to groups of developers.
+
+ 	  	->	higher version of RAD -> CBSE {component based software engineering}
+
+
+
