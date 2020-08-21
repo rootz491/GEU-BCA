@@ -35,7 +35,7 @@
         A>>2=00110011               (right shift A's data by two places, data will get lost for last two bits)
     now left shift
         A<<2=00110000
-    INTRODUCTION TO ATmega 16 (we'll work on 8 also)
+    INTRODUCTION TO ATmega16 (we'll work on 8 also)
         AT      --->    ATMEL       (company name)
         mega    --->    category between Tiny and super complex (X-mega) microcontroller.   --->    used for testing purposes
         16      --->    means 16kB is size given for code  
@@ -290,7 +290,86 @@
                 
                 #endif
     ''' 
+    
     ASSIGNMENTS :-
         lcd_6d()       ->   create
         lcd_max()      ->   max of two numbers  i.e.  lcd_max(1,5) return 5.
         lcd_decimal()  ->   explain
+
+# lecture 10
+    
+    *   reading datasheel for LCD
+    
+    int lcd_max(int a, int b) {
+        if(a>b)
+            lcd_3d(a);
+        else
+            lcd_3d(b);
+    }
+    
+    must read data sheets thoroughly!
+    
+#USART: new topic
+    ->  universal SYN. ASYNC. recieve and trans
+    
+        synchronous : working with respect to some element {TIME}
+        asynchronous : when event is indipendent, not affecting other events.
+    
+        but we will only study, USRT {universal async. recieve and transmit}
+        
+        ATmega16L -> are nothing but little variatio like requirement for power supply.
+        
+        PRE-REQUISITE KNOWLEDGE: for this lecture!
+        ->  simplex         one way comm.
+        ->  half-duplex     two way but one at a time, like walkie-talkie
+        ->  full-duplex     proper two way, like phone call, video conference.
+        ->  even or odd parity
+        ->  study below keyowrds :) i'm not kidding ~
+        
+    features of UART:
+    
+    ->  UART works in serial communication.
+    ->  follows data communication mode: Full-Duplex (2 way comm.)
+    ->  SPI protocol - serial perepheral interface.
+    ->  Baud rate - data transmission rate. (bits per second)
+            we will use 9600 baud rate.
+    ->  support serial frame with 5,6,7,8,9 data bit and 1, 2 stop bit.
+            we will use 8 data bit
+            stop bit is when error occur, where to stop (which bit)!
+            we will use 1 data bit.
+    ->  even or odd parity generationa and checked by hardware.
+    ->  Data overflow detection
+             we can control flow of data.
+    ->  framing error detection.
+    ->  noice filtering includes false start bit detection and digital low pass filter.
+    ->  three seperate interup on TX complete, TX data register Emptym and RX complete.
+    ->  multi processor communication mode.
+    ->  doulbe speed Async. communication mode.         <IMPORTANT>
+    
+    next: SART Control and Status Register  { refer to pdf }
+    
+
+# lecture 11
+    
+    *   FIRST OF ALL, GO AND STUDY PDF {lecture 10, 11}reciever
+    
+    ->  Writing this bit to one will reduce the divisor of the baud rate divider from 16 to 8 effectively doubling the transfer rate for asynchronous communication. 
+    
+    ->  details about resistors
+    
+    ->  calculating baud rate!   { Refer to pdf }
+    
+    ->  function to initialize UART
+    
+        '''
+            void uart_init() {
+                UCSRA = 0b00000000;
+                UCSRB = 0b00011000;
+                USCRC = 0b10000110;
+                UBRRH = 0;
+                UBRRL = 51;
+            }
+        '''
+    
+    ->  function to reciever and transmission in next class.
+    
