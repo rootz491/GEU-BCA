@@ -1,0 +1,118 @@
+
+
+#include <mega16.h>
+#include <delay.h>
+#include <mylcd.h>
+#include <string.h>
+
+
+
+// initialize UART
+
+void uart_init() {
+    UCSRA = 0b00000000;
+    UCSRB = 0b00011000;
+    UCSRC = 0b10000110;
+    UBRRH = 0;
+    UBRRL = 51;
+}
+
+
+//  transmit a character
+
+void uart_tx(char d) {
+    UDR = d;
+    while ((UCSRA & 0b01000000) == 0);
+    delay_ms(100);
+}
+
+
+// recieve a character 
+
+char uart_rx(){
+    while ( (UCSRA & 0b10000000) == 0);
+    return UDR; 
+    delay_ms(50);
+}
+
+
+
+//-------------------------------------------------------
+
+
+
+//  transmit a string
+        
+void uart_ts(char *str) {
+    while(*str != '\00') {
+        uart_tx(*str);
+        str++;
+        delay_ms(70);
+    }
+}
+
+
+
+//  recieve a string
+
+char* uart_rs(char *buffer) {
+    char *p=buffer;
+    do
+    {
+        *(buffer++) = uart_rx();
+    } while (*(buffer-1) != '\r');
+    *buffer = '\0';    
+    return p;  
+}
+
+
+
+
+// normal variables ....
+
+char str[20], ch;
+int i=0;
+  
+void main() {
+
+    PORTD = 0b00000000;
+    DDRD = 0b00000010;
+    
+    lcd_init();
+    uart_init();
+    
+    while (1) {
+        uart_ts("enter passWd: ");              //  Enter your passwd: 
+    
+                                                //  logic one to input string 
+    /*  do {
+            i=0;
+            ch = uart_rx();
+            uart_tx(ch); 
+            str[i]=ch;
+            i++;
+        } while(str[i-1]!='\r');
+        str[i] = '\00';
+        if (strcmp(str, "karansh123")==0) {     //  passwd check
+            lcd_s(str);                 
+        }
+        else {
+            lcd_s("wrong passwd");
+        }
+        delay_ms(3000);
+        lcd_cmd(0x01);
+    */             
+        uart_ts(uart_rs(str));          //  input using function
+        lcd_s(str);                     //  write into LCD                    
+        delay_ms(2000);
+        lcd_cmd(0x01);
+    }
+
+}
+
+
+
+
+
+
+

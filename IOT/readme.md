@@ -1,6 +1,6 @@
- IOT NOTES
+# IOT NOTES
 
-# lecture 1
+## lecture 1
     
 	->  embedded systems : Scale down computer system which is designed to perform a specific task.
     	calculators, cell phones etc.
@@ -45,7 +45,8 @@
         2. SMD (surface mounted) type
      
  	
-# lecture 2
+
+## lecture 2
     
     *   ATmega16 is 8 bit micro-controller.
     *   frequency -> from 1Mz to 8Mz 
@@ -69,8 +70,8 @@
     GLOWING FIRST BULB      ->  refer to image
     DDR register ->     to declare the type of port
       full-form  ->     Data direction port
-    ### standard format of code
-            1. #include -> include all header files
+    ###### standard format of code
+            1. ##include -> include all header files
             2. Variables/constant declaration and initialization 
             3. Function definition and body
             4. main() ->  functuion start
@@ -79,7 +80,7 @@
             7. while(1)  ->  to get continuous output!
     
     SAMPLE CODE  -----   blink LED  
-'''        #include<mega16.h>
+'''        ##include<mega16.h>
             void main() {
                 PORTC = 0b00010000;   (port initialization)
                 DDTC = 0b00010000;
@@ -93,7 +94,8 @@
         *   Codevision - to convert code into machine lang. 
         *   Proteus    - to debug the code. before deploying into hardware like hardware simulator. 
 
-# lecture 3
+
+## lecture 3
     
     today we are going to have some hands-on practice.
     
@@ -127,7 +129,7 @@
                          
         ---------------------- START CODING ----------------------    
 '''
-        #include<mega16.h>
+        ##include<mega16.h>
         void main() {
             PORTC = 0b00000001;     //  initialize port
             DDRC = 0b000000001;     //  declare port
@@ -136,7 +138,7 @@
             }
         }
 '''
-
+    
     ->  from above menu, click on 'build all project files'.
     ->  Dialog box appear (will show some info and error )
     ->  if error exist, 'ERROR DETAILS' will appear on side-screen.
@@ -148,7 +150,7 @@
     FINALLY, Run the simulation by clicking on left-bottom button (triangle). And bulb will glow!
     GLOW LED at PC0, PA0, PB4 ports. < CODE >
 '''
-                    #include<mega16.h>
+                    ##include<mega16.h>
                     void main() {
                     PORTA=0b00000000;
 >                   DDRA=0b00000001;
@@ -165,7 +167,8 @@
 '''
     ASSIGNMENT -> PD0 : LED, PD3 : LED, PC1 : LED, PC2 : LED, PC3 : LED, PD1 : LED, PA7 : LED   { GLOW THE LED } // Assignment done!
 
-# lecture 4
+
+## lecture 4
     
     delay.h -> 
         delay_ms() -> counts in mili seconds.
@@ -187,7 +190,8 @@
     De-bouncing: fluctuation of 1 and 0 even after pressing the switch. 
         SOLn. : Use while loop instead of 'if condition'
 
-# lecture 5
+
+## lecture 5
     
     ->  Arduino use ATmega328P
     MOTORS
@@ -207,7 +211,8 @@
         '''
         ->  assignment of some projects. // DONE
 
-# lecture 6
+
+## lecture 6
     
     ->  old assignment explaination
     ->  Elevator question + ASSIGNMENT 3 -> given
@@ -234,7 +239,8 @@
         *   send LSB first.
         *   send bit from right to left.
 
-# lecture 7 : doubt session 
+
+## lecture 7 : doubt session 
     
     *   Switch
             ->  Active high :   { PIN, GROUND(+res), SWITCH, POWER }
@@ -248,7 +254,8 @@
             UART: universal asynchoronus recieve andd transmission protocol
                 ->  Protocol to work wirelessly in 99% of technologies!
 
-# lecture 8
+
+## lecture 8
     
     *   types of modes : 4 pin or 8 pin.
     *   by using 4 pin mode, we'll save other 4 pins that was before used by other mode.
@@ -256,7 +263,8 @@
     *   copy header files and goto : c > cvavreval > INC 
     *   ti select LCD : keyword - alpha  { choose 16x2 LCD }
 
-# lecture 9
+
+## lecture 9
     
     *   Voting machine problem  -> go to PDFs
             -----------------
@@ -266,20 +274,20 @@
         --> hello.h     {HEADER FILE}
     
     '''
-            #ifndef _hello_h_
-            #define _hello_h_
+            ##ifndef _hello_h_
+            ##define _hello_h_
     
             function prototype
             function definition
     
-            #endif
+            ##endif
     '''
             ---------------------
     *   example: switch1.h  ->  PORTC.0  {Switch 1}
     
     '''
-                #ifndef _switch1_h_
-                #define _switch1_h_
+                ##ifndef _switch1_h_
+                ##define _switch1_h_
                 
                 void myswitch();
                 void myswitch() {
@@ -288,7 +296,7 @@
                     DDRC.0=0;
                 }
                 
-                #endif
+                ##endif
     ''' 
     
     ASSIGNMENTS :-
@@ -296,7 +304,8 @@
         lcd_max()      ->   max of two numbers  i.e.  lcd_max(1,5) return 5.
         lcd_decimal()  ->   explain
 
-# lecture 10
+
+## lecture 10
     
     *   reading datasheel for LCD
     
@@ -309,7 +318,7 @@
     
     must read data sheets thoroughly!
     
-#USART: new topic
+### USART: new topic
     ->  universal SYN. ASYNC. recieve and trans
     
         synchronous : working with respect to some element {TIME}
@@ -349,12 +358,15 @@
     next: SART Control and Status Register  { refer to pdf }
     
 
-# lecture 11
+
+
+
+## lecture 11
     
     *   FIRST OF ALL, GO AND STUDY PDF {lecture 10, 11}reciever
     
     ->  Writing this bit to one will reduce the divisor of the baud rate divider from 16 to 8 effectively doubling the transfer rate for asynchronous communication. 
-    
+        
     ->  details about resistors
     
     ->  calculating baud rate!   { Refer to pdf }
@@ -372,4 +384,77 @@
         '''
     
     ->  function to reciever and transmission in next class.
+
+## lecture 12
     
+    ->  function to transmit and recieve data
+        '''
+            void uart_tx(char d) {
+                UDR = d;
+                while ((UCSRA & 0b01000000) == 0);
+                delay_ms(100);
+            }
+            char uart_rx(){
+                while ( (UCSRA & 0b10000000) == 0);
+                return UDR;
+                delay_ms(100);
+            }
+        '''
+    
+    ->  if vitual terminal not found:   debug > virtual terminal {last}
+    
+    Assignment:
+        ->  screen1: "Enter your password:"
+                        <input password>
+            screen2: if passwd is correct, then "welcome" else "wrong passwd" {2 sec. delay}
+    
+        ->  uart_s("hello"); // create function
+              
+
+# lecture 13
+    
+    ->  assignment 1: Home automation
+    ->  assignment 2: A/C wireless
+    
+    ->  bluetooth module:  HC05
+    ->  serial bluetooth terminal <application> is used to control using modules
+    ->  BLYNK is another good app.
+    ->  study working with RELAY. 
+
+
+# lecture 14
+    
+## IoT part Started
+    
+    ->  We'll work on application layer.
+    ->  INTERNET    :   Network of devices connected together to exchange data.
+    ->  IoT:    Enabling computers so they can see, hear and smell the world.
+    ->  Data = Information + Noise
+    ->  Information = quick decisions
+    ->  Iot can be used to gather data or to automate some work.
+    ->  life cycle of IoT:
+            *   visit PDF ;)
+    ->  Revolution of IoT
+            *   1st revolution:     Due to poolie and assembly line.
+            *   2nd and 3rd rev.:   Introduced IC and programming tasks.
+            *   4th revolution:     Communication through internet among devices.
+    ->  NodeMCU ->  10 bits ACD ->  same as Arduino.
+        Arduino ->  8 Bit   ACD ->  Arduino is exprensive.
+    
+    ->  NodeMCU:    ainuino.cc  >   download it's softwarew 
+                                    download Arduino IDE
+    ->  setup IDE for NodeMCU:  file > preferences > popup window will apear > additional bla-bla > http://arduino.esp8266.com/stable/package_esp8266com_index.json > ok 
+    ->  go to: Tools > board > select 'board manager' > pop up appear > search 'ESP 8266'   >   install.
+    ->  tools > board > arduino uno > nodeMCU v1.0 > ESP12e module
+    
+    ->  gpio pin:   they are digital pins, we cannot use arduino directly. we use third party tools.
+    
+    ->  Master out slave in
+        clock select
+        Master in slave out
+        serial clock    {}
+    
+    ->  SPI:    Serial peripheral interface.
+    ->  Flash:  
+    ->  SOC Anteena:    System on chip anteena
+    ->   
