@@ -1,6 +1,8 @@
-# IOT NOTES
+# IOT NOTES:
 
-## lecture 1
+## Embedde programming and Hardware
+
+### lecture 1
     
 	->  embedded systems : Scale down computer system which is designed to perform a specific task.
     	calculators, cell phones etc.
@@ -46,7 +48,7 @@
      
  	
 
-## lecture 2
+### lecture 2
     
     *   ATmega16 is 8 bit micro-controller.
     *   frequency -> from 1Mz to 8Mz 
@@ -95,7 +97,7 @@
         *   Proteus    - to debug the code. before deploying into hardware like hardware simulator. 
 
 
-## lecture 3
+### lecture 3
     
     today we are going to have some hands-on practice.
     
@@ -168,7 +170,7 @@
     ASSIGNMENT -> PD0 : LED, PD3 : LED, PC1 : LED, PC2 : LED, PC3 : LED, PD1 : LED, PA7 : LED   { GLOW THE LED } // Assignment done!
 
 
-## lecture 4
+### lecture 4
     
     delay.h -> 
         delay_ms() -> counts in mili seconds.
@@ -191,7 +193,7 @@
         SOLn. : Use while loop instead of 'if condition'
 
 
-## lecture 5
+### lecture 5
     
     ->  Arduino use ATmega328P
     MOTORS
@@ -212,7 +214,7 @@
         ->  assignment of some projects. // DONE
 
 
-## lecture 6
+### lecture 6
     
     ->  old assignment explaination
     ->  Elevator question + ASSIGNMENT 3 -> given
@@ -240,7 +242,7 @@
         *   send bit from right to left.
 
 
-## lecture 7 : doubt session 
+### lecture 7 : doubt session 
     
     *   Switch
             ->  Active high :   { PIN, GROUND(+res), SWITCH, POWER }
@@ -255,7 +257,7 @@
                 ->  Protocol to work wirelessly in 99% of technologies!
 
 
-## lecture 8
+### lecture 8
     
     *   types of modes : 4 pin or 8 pin.
     *   by using 4 pin mode, we'll save other 4 pins that was before used by other mode.
@@ -264,7 +266,7 @@
     *   ti select LCD : keyword - alpha  { choose 16x2 LCD }
 
 
-## lecture 9
+### lecture 9
     
     *   Voting machine problem  -> go to PDFs
             -----------------
@@ -305,7 +307,7 @@
         lcd_decimal()  ->   explain
 
 
-## lecture 10
+### lecture 10
     
     *   reading datasheel for LCD
     
@@ -318,7 +320,7 @@
     
     must read data sheets thoroughly!
     
-### USART: new topic
+#### USART: new topic
     ->  universal SYN. ASYNC. recieve and trans
     
         synchronous : working with respect to some element {TIME}
@@ -361,7 +363,7 @@
 
 
 
-## lecture 11
+### lecture 11
     
     *   FIRST OF ALL, GO AND STUDY PDF {lecture 10, 11}reciever
     
@@ -375,8 +377,8 @@
     
         '''
             void uart_init() {
-                UCSRA = 0b00000000;
-                UCSRB = 0b00011000;
+                UCSRA = 0b00000000;     //  Transmission default
+                UCSRB = 0b00011000;     //  
                 USCRC = 0b10000110;
                 UBRRH = 0;
                 UBRRL = 51;
@@ -385,7 +387,7 @@
     
     ->  function to reciever and transmission in next class.
 
-## lecture 12
+### lecture 12
     
     ->  function to transmit and recieve data
         '''
@@ -411,7 +413,7 @@
         ->  uart_s("hello"); // create function
               
 
-# lecture 13
+### lecture 13
     
     ->  assignment 1: Home automation
     ->  assignment 2: A/C wireless
@@ -422,9 +424,9 @@
     ->  study working with RELAY. 
 
 
-# lecture 14
-    
 ## IoT part Started
+
+### lecture 14
     
     ->  We'll work on application layer.
     ->  INTERNET    :   Network of devices connected together to exchange data.
@@ -441,7 +443,7 @@
     ->  NodeMCU ->  10 bits ACD ->  same as Arduino.
         Arduino ->  8 Bit   ACD ->  Arduino is exprensive.
     
-    ->  NodeMCU:    ainuino.cc  >   download it's softwarew 
+    ->  NodeMCU:    ainuino.cc  >   download it's software 
                                     download Arduino IDE
     ->  setup IDE for NodeMCU:  file > preferences > popup window will apear > additional bla-bla > http://arduino.esp8266.com/stable/package_esp8266com_index.json > ok 
     ->  go to: Tools > board > select 'board manager' > pop up appear > search 'ESP 8266'   >   install.
@@ -455,6 +457,138 @@
         serial clock    {}
     
     ->  SPI:    Serial peripheral interface.
-    ->  Flash:  
+    ->  Flash
     ->  SOC Anteena:    System on chip anteena
-    ->   
+    ->  
+
+### lecture 15
+    
+    ->  setting up IDE
+    ->  writing code on arduino IDE:
+        *   header files  ==>   functions   ==>     constant/variables.
+        *   void setup() {
+                //  code that we want to execute once.
+            }
+        *   void loop() {
+                //  code that we want infinite times.
+            }
+    ->  writing first code: <Glow an LED>
+            refer to code file.
+    ->  watch PDF for circuit diagram.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# KEY-NOTES:
+    
+    --> Rx is Reception meaning, UART is listrening for data, and after listening it. It will return it to micro-controler.
+    
+    --> Now in Micro-controller, Data is there, But if we want to use/print it somewhere, then we have to transmit it, that it, Tx.
+    
+    --> so when we see the basic code for reception and transmission of data :
+        uart_init();
+        while(1) {              //  repeatedly listening and transmitting data.
+            P = uart_rx();      //  listening for input and storing it into P variable of type 'char'
+            delay_ms(100);
+            uart_tx(P);         //  transmitting data back to V.terminal to print what we've listened before 
+        }
+    
+    --> Let's discuss the listening and transmitting functionality in detail.
+    
+    *   Transmission function:
+    
+    void uart_tx(char d) {
+        UDR = d;
+        while ((UCSRA & 0b01000000) == 0);    
+        delay_ms(100);
+    }
+    
+    --> UCSRA is default 0 (0b00000000) and we are using 0b01000000 as matching condition.
+    
+    --> if we see only (UCSRA & 0b01000000) part of condition, it is saying that condition will only be true if value in UCSRA and that binary will match.
+    
+    --> Now, why only 0b01000000?   Well, we can see that in register UCSRA, bit 6 represents 'UART Transmit complete'. if we look at the data sheet for description, it will show us that, bit 6 will be set to 1, if and only if data transmit have been completed! 
+    
+    -->  But we know that we haven't transmitted the data yet. Meaning, this  (UCSRA & 0b01000000) contion will not be true untill data is successfully transmitted.
+    
+    --> Ok, what now?   So simply we check for condition UNTILL it's True, so that we will know when will the data successfully transmitted!
+    
+    --> Wait what!!!    yes, we can apply that by using while loop, that is, while((UCSRA & 0b01000000) == 0);   Here we are simply checking that 'data is not Transmitted yet' as for True condition. But it will become False when data transmission get completed.   Thus (UCSRA & 0b01000000) wil be equals to 1, but also 1 == 0 is FALSE. 
+    
+    --> Therefore, we will get out of loop as soon as data is transmitted!
+    
+    --> Now if data is transmitted, Meaning that we can use data by the device it is transmitted to, like a micro-controller.
+    
+    *   Reception function:
+    
+    char uart_rx(){
+        while((UCSRA & 0b10000000) == 0);
+        return UDR;
+    }
+    
+    --> The only thing suspicious here is that, 0b10000000. That is the bit 7 of UCSRA register. Which tells that it'll only be set to 1 if there will be some data in the register. Else bit 7 will be 0.
+    
+    --> Using this information, we've used previous trick to, now, extract data from UART. 
+    
+    --> The condition will be, while((UCSRA & 0b10000000) == 0);   means if register have no data, then while loop will go on. and if register have some data in it, Then we can retutn that data to whereever we want.
+    
+    --> Pretty simple, Huh :) 
+        yes it is!
+    
+    --> Last thing for now, Go and do read Data sheet. Everything is there!

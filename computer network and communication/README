@@ -1,0 +1,74 @@
+#	Networking
+
+
+>	ARP	:	address resolution protocol ->	used to convert ip address to it's Physical address (i.e. MAC address)
+
+>	RASP:	Reverse Address Resolution protocol	->	it give ip address, given physical address as input
+
+>	Internet protocol suite: layers-
+
+	1.	Application layer:	concerned with data(URL, type, etc), where HTTP, HTTPS, etc comes in.	
+	2.	Transport layer:	responcible for end-to-end communication over a network.
+	3.	Network layer:		provide a data route.
+
+>	URI:	uniform resource identifier	->	it's like address providing a unique global identifier to a resource on the web.
+			URL is most common form of URI.
+
+>	parts of URI:
+	
+	1.	PROTOCOL:	like HTTP
+	2. 	Domain name:	www.google.com
+
+>	FACTS about networking:
+	
+	*	Internet was invented by 'Tim Burners-Lee' in 1989.
+	*	Internet is controlled by 75 million servers.
+	*	The backbone of internet is made by 550,000 miles of underwater cable.
+	*	About 3.2 billion people use the internet from which 1.7 billion internet users are Asians.
+
+>	Transmission mode:	transferring of data b/w two devices.
+
+	*	Simplex mode:	comm. is unidirectional, so on a one-way street.
+		->	Example:	keyboard, mouse and old monitors.
+
+	*	Half-Duplex mode:	Each station can both transmit and recievem but not at same time.
+		->	when one device is sending, other can only recieve.
+		->	the entire capacity of channel can be utilized in one direction.
+		->	Example:	Walkie-Talkie.
+
+	* Full-Duplex mode:		both stations can send and recieve at same time (simultaneously).
+
+>	Cast:	stream of data being transmitted to the recipient from the client over comm. channel.
+
+	1.	Unicast:	useful when there is participatio of single sender and sigle reciever.
+
+	2.	Broadcase:	one to all transfer with same network.
+
+		*	Direct Broadcasting:	when device in one network want to transfer packet steam to all the devices over the other network.
+
+	3.	Multicast:	one or more sender and recipients participate in data transfer traffic.
+
+>	access networks {like Home network}
+	
+	*	Ethernet:	Wired LAN technology, provides services on physical and data link layer of OSI model.
+		->	It uses coaxial or twisted pair wires.
+
+	*	DSL:	Digital Subscriber Line, basically telephone cable.
+		->	DSL can carry both data and voice signals.
+		->	In DSL, you can use internet and make phone calls simultaneously.
+		->	Speed:	24 Mbps downstream, 2.5 Mbps upstream.
+
+	*	FTTH:	fiber to the home. Uses optical fiber.
+		->	High speed internet.
+
+	*	Wireless LANs:	links two or more devices using wireless communication within a range.
+		->	Uses high-frequency radio wave.
+
+	*	3G and LTE:	Uses cellular telephony to send or recieve packets through nearby base station operated by cellular network provider.
+
+
+>	tools:	
+		1.	ifconfig	->		ip address and all sort of stuff of system.
+		2.	netstat	-a 	->		list of all PORTS used by system.
+		3.	nslookup <DOMAIN>	->	will return IP address of domain you pass. like DNS
+
