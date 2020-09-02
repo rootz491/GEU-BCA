@@ -476,6 +476,59 @@
             refer to code file.
     ->  watch PDF for circuit diagram.
 
+### lecture 16
+    
+    ->  we don't need to use resistor to work with LED, because in nodeMCU is already using minimal power supply, i.e. 3.3v
+    ->  Today, first we'll work with 'switch'
+        *   CODE:                           {   diagram in PDF   }
+                    void setup() {
+                        pinMode(D0, OUTPUT);    //  LED
+                        pinMode(D4, INPUT);     //  Switch
+                    }
+                    void loop() {
+                        p = digitalRead(D4);    //  listening to switch
+                        if(p==0) {              //  if switch pressed, LED = ON
+                            digitalWrite(D0, 1);    
+                        }
+                        else {                  //  vise-versa
+                            digitalWrite(D0, 0);
+                        }
+                    }
+    ->  Next is 'motor'
+        *   CODE:                           {   diagram in PDF   }
+                    void setup(){                              
+                        digitalWrite(D0, 1);    //  motor rotate clock-wise.
+                        digitalWrite(D1, 0);
+                    }
+                    void loop() {               //  no need of repeating work
+                        //  empty
+                    }
+    
+    ->  Pulse Width Modulation (PWM):           [   IMP. TOPIC  ]
+        
+        *   technique of sending Data through signal/pulses.
+        *   amplitude modulation (AM):   mixing wave of small wave length with wave of long wavelength, so it can travel longer. it changes the amplitude of wave. 
+        *   Frequency modulation (FM):  mixing wave of two frequencies, or change in frequency is called frequency modulation.
+        *   For PWM and Duty cycle, refer to PDF.
+            Most imp. topic, DON'T skip it.
+        *   in summary, Effect of PWR is like when Lift door open smoothly or change in color for smart bulbs.
+    
+    ->  Duty cycle: The time for which device’s output is high.
+        FORMULA for duty cycle:-    refer to PDF
+    
+    *   CODE:
+                void setup() {
+                    p = 0;
+                    while (p < 1024) {
+                        analogWrite(D2, p);
+                        p++;
+                        delay_ms(100);
+                    }
+                }
+                void loop() {}
+
+
+
 
 
 
