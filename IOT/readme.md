@@ -525,10 +525,75 @@
                         delay_ms(100);
                     }
                 }
-                void loop() {}
+                void loop();
 
 
+### lecture 17
+    
+    ->  code to increase light intensity by 100% by pressinging the switch.
+        *   CODE:
+                void setup() {
+                    int p=0;
+                    pinMode(D4, OUTPUT);
+                    pinMode(D6, INPUT);
+                }
+                void loop() {
+                    int f = digitalRead(D4);
+                    if(f == 1) {
+                        analogWrite(D4, p+=100);
+                    }
+                }
+    
+    ->  Now we'll code for arduino, because we can simulate that.
+        
 
+
+### lecture 18
+    
+    ->  ADC (analog digital conversion):    conversion of analog signal to digital signals.
+    ->  as most sensors gives back data in analog form, so we'll use analogRead(analogPinNumber) to read data from sensors.
+    ->  temperature sensor (LM35):  used to check temperature :)
+    ->  Serial monitor: is used to visualize data.
+        *   code:   {   'S' is capital in 'Serial'    }
+                void setup() {
+                    Serial.begin(9600);     //  baud rate as parameter.
+                }
+                void loop() {
+                    Serial.print("Hello world!");
+                    delay(1000);
+                }
+    ->  To print data in vertical manner: 
+        *   Serial.println('hello');
+        *   Serial.print('hello\n');
+    
+    ->  one more code example:
+            int p=0;
+            void setup() {          
+              Serial.begin(9600);
+            }
+            void loop() {
+              Serial.println(p++);
+              //delay(1000);
+            }
+    
+    
+    ->  sensing data from TEMPERATURE sensor and print it into serial monitor:
+            void setup() {
+              pinMode(A1, INPUT);     //  declaring analog pin for sensor. 
+              Serial.begin(9600);     //  initialize serial monitor.
+            }
+            void loop() {
+              int z = analogRead(A1); //  taking row data from sensor
+              float v = (5.0/256)*z;  //  convert data into voltage
+              float t = v*10;         //  convert voltage into temperature
+              Serial.println(t);      //  print Temperature.
+              delay(1000);
+            }
+#### web development
+    ->  HTML + Css + JavaScript
+##### HTML: 
+    ->  here we'll study about HTML.    :P
+        *   create index.html
 
 
 
@@ -645,3 +710,5 @@
         yes it is!
     
     --> Last thing for now, Go and do read Data sheet. Everything is there!
+    
+    --> Edge computing: when we do computatuion on hardware instead of cloud. then it's called edge computing.
