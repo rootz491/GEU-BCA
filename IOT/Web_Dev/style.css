@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#header {
+    padding-top: 1em;
+    text-align: center;
+    font-size: 50px;
+
+}
+
+#inputForm {
+    width: 100%;
+    display: grid;
+    place-content: center;
+    padding: 5em 0;
+}
+
+form {
+    padding: 3em;
+    border: 1px dotted black;
+}
+
+form > div {
+    padding: 1em;
+    font-size: 25px;
+    
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+
+}
+
+.name > input, .email > input {
+    border: .5px solid black;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.submitButton > input {
+    margin: 15px auto;
+    padding: 5px 12px;
+    font-size: 20px;
+}
+
+
+.info {
+    width: 80%;
+    min-height: 200px;
+    margin: 2em auto;
+    padding: 1em;
+    border: 0.1px solid black;
+}
+
+.infoName {
+    padding: 10px;
+}
+
+
+
+
+
+

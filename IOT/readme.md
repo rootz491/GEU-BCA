@@ -596,6 +596,12 @@
         *   create index.html
 
 
+### lecture 19
+    
+    ->  function addBy2(input) { return input + 2; }
+        const addBy2 = input => input+2; 
+        both are same 
+    ->  
 
 
 
