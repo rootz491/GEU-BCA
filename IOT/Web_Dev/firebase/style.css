@@ -18,12 +18,12 @@
     padding: 5em 0;
 }
 
-form {
+.form {
     padding: 3em;
     border: 1px dotted black;
 }
 
-form > div {
+.form > div {
     padding: 1em;
     font-size: 25px;
     
@@ -39,7 +39,7 @@ form > div {
     font-size: 18px;
 }
 
-.submitButton > input {
+.submitButton > button {
     margin: 15px auto;
     padding: 5px 12px;
     font-size: 20px;
@@ -54,12 +54,28 @@ form > div {
     border: 0.1px solid black;
 }
 
-.infoName {
+.mainInfoWrapper {
+    display: grid;
+    align-content: center;
+    width: 100%;
+    height: 150px;
+}
+
+#infoName {
+    text-align: center;
     padding: 10px;
+    font-size: 40px;
+    color:purple;
 }
 
 
 
 
+#infoEmail {
+    text-align: center;
+    padding: 10px;
+    font-size: 40px;
+    color:purple;
+}
 
 

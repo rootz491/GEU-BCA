@@ -52,19 +52,16 @@ console.log(book.price);
 
 */
 
-
-let getName = e => {
-    e.preventDefault();
-    let from = document.getElementById('name').innerText;
-    let to = document.getElementById('infoName');
-    to = from;
+let submitted = () => {
+    let getter1 = document.getElementById('name').value;
+    let getter2 = document.getElementById('email').value;
+    document.getElementById('infoName').innerText = `Name:   ${getter1}`;
+    document.getElementById('infoEmail').innerHTML = `Email: ${getter2}`;
 }
 
+// let submitBtn = document.getElementById('submit');
 
-
-let form = document.querySelector('form');
-
-form.addEventListener('submit', getName);
+// submitBtn.addEventListener('click', submitted);
 
 
 

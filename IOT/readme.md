@@ -718,3 +718,16 @@
     --> Last thing for now, Go and do read Data sheet. Everything is there!
     
     --> Edge computing: when we do computatuion on hardware instead of cloud. then it's called edge computing.
+
+
+
+# FIREBASE
+    
+    ->  firebase is to work with real-time database.
+    ->  commands:
+        >   sudo npm install -g firebase-tools
+        >   firebase login
+        >   firebase init
+        >   firebase emulators:start
+        >   firebase deploy
+        >   
