@@ -1,0 +1,29 @@
+[debug] [2020-10-02T14:46:41.323Z] ----------------------------------------------------------------------
+[debug] [2020-10-02T14:46:41.328Z] Command:       /usr/bin/node /usr/local/bin/firebase serve
+[debug] [2020-10-02T14:46:41.328Z] CLI Version:   8.11.2
+[debug] [2020-10-02T14:46:41.329Z] Platform:      linux
+[debug] [2020-10-02T14:46:41.329Z] Node Version:  v10.21.0
+[debug] [2020-10-02T14:46:41.329Z] Time:          Fri Oct 02 2020 20:16:41 GMT+0530 (India Standard Time)
+[debug] [2020-10-02T14:46:41.329Z] ----------------------------------------------------------------------
+[debug] [2020-10-02T14:46:41.329Z] 
+[debug] [2020-10-02T14:46:41.340Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-10-02T14:46:41.341Z] > authorizing via signed-in user
+[debug] [2020-10-02T14:46:41.341Z] [iam] checking project iot-project-491 for permissions ["firebase.projects.get"]
+[debug] [2020-10-02T14:46:41.346Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/iot-project-491:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-10-02T14:46:43.329Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 02 Oct 2020 14:48:18 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1360","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-02T14:46:43.333Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/iot-project-491  
+ 
+[debug] [2020-10-02T14:46:50.039Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 02 Oct 2020 14:48:25 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from '/home/rootz491/Desktop/lecture notes/IOT/Web_Dev/firebase'...
+[info] 
+[debug] [2020-10-02T14:46:50.048Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/iot-project-491/webApps/-/config  
+ 
+[debug] [2020-10-02T14:46:51.636Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 02 Oct 2020 14:48:27 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] ✔  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[info] i  hosting: 127.0.0.1 - - [02/Oct/2020:14:46:56 +0000] "GET / HTTP/1.1" 200 1500 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [02/Oct/2020:14:46:56 +0000] \"GET / HTTP/1.1\" 200 1500 \"-\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [02/Oct/2020:14:46:56 +0000] "GET /style.css HTTP/1.1" 200 635 "http://localhost:5000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [02/Oct/2020:14:46:56 +0000] \"GET /style.css HTTP/1.1\" 200 635 \"http://localhost:5000/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [02/Oct/2020:14:46:56 +0000] "GET /main.js HTTP/1.1" 200 1266 "http://localhost:5000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [02/Oct/2020:14:46:56 +0000] \"GET /main.js HTTP/1.1\" 200 1266 \"http://localhost:5000/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [02/Oct/2020:14:46:56 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:5000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [02/Oct/2020:14:46:56 +0000] \"GET /favicon.ico HTTP/1.1\" 404 150 \"http://localhost:5000/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36\""}}
