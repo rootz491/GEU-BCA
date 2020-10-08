@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+   
+    
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="style.css">
+
+    <title>Blog Post</title>
+
+</head>
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h1>Blog Post</h1>
+            <div class="user">
+                <div id="whenSignedOut">
+                    <button type="button" id="signIn">sign in</button>
+                </div>
+                <div id="whenSignedIn" hidden="true">
+                    <p id="username"></p>
+                    <button id="signOut">sign out</button>
+                </div>
+            </div>
+        </header>
+        <main>
+            <article>
+                <div class="heading">
+                    <h1>Story of an Ancient survivor</h1>
+                </div>
+                <div class="image">
+                    <img src="Optimized-old rig.jpg" alt="image">
+                </div>
+                <div class="writeup">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam autem laudantium sapiente, beatae ex accusamus est mollitia ipsum fugiat similique id, consequuntur temporibus animi quo culpa soluta vero ipsa odit.
+                    Quidem quam quisquam alias amet dolor suscipit ad impedit maxime. Distinctio laudantium esse illum animi, tenetur saepe in est blanditiis placeat nisi quis numquam dolorem ut vel, quos, provident natus.
+                    Aperiam, adipisci nemo laudantium aliquid obcaecati illum totam natus excepturi porro ut consequatur doloribus voluptatem minus, et, enim accusamus. Accusantium excepturi nulla ipsum nesciunt. Quod quos obcaecati qui corporis illum.</p>
+                </div>
+            </article>
+            <section>
+                <div class="commentHeading">
+                    <h1>Comments</h1>
+                </div>
+                <div id="commentWrapper">
+                    
+                <!--
+                    <div id="comment">
+                        <p id="commentContext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error dolore architecto qui dolorem, provident minima, consequuntur animi pariatur autem atque, modi labore. Necessitatibus nostrum debitis sit aut harum. Unde, quo.</p>
+                        <h4 id="commentName">Example</h4>
+                    </div>
+                -->
+                </div>
+                <div id="postComment">
+                    <div class="postHeading">
+                        <h1>Post a comment</h1>
+                    </div>
+                    <form name="postForm">
+                        <input type="text" placeholder="name" id="postName" required>
+                        <textarea type="text" placeholder="comment ..." id="postText" required></textarea>
+                        <div class="submitBtn">
+                            <button id="submit" type="submit">post</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-database.js"></script>    <script src="app.js" defer></script>
+
+</body>
+</html>

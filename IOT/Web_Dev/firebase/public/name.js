@@ -17,21 +17,38 @@ let db = firebase.database();
 //  db.ref('iot2/id').on('value', snap => console.log(snap.val()));             //  read by 'on'        value change event      (sync)
 
 
-let addData = (name, desig, id) => {
-    db.ref('iot2/'+id).set({
-        name: name,
-        designation: desig
-    });
-}
+
+
+
+
+
+
 
 //  retrieve data of saved user in database
 db.ref().child('iot2').once('value').then(snap => {
     //  list of each userId
     let items = snap.val();
-    for(const item in items) {
+    //  taking data from each user ID
+    for(const item in items) 
         db.ref('iot2/'+item).once('value').then(snap => createNewNode(snap.val()));
-    }
 });
+
+
+
+
+
+
+//  remove as data is deleted on database
+db.ref().child('iot2').on('child_removed', snap => {
+    let data = snap.val();
+    alert(`Deleted from database!\nName:  ${data.name}\nDesignation: ${data.designation}`);
+    removeNode(data.name);
+})
+
+
+
+
+
 
 
 
@@ -44,23 +61,22 @@ submiButton.addEventListener('click', () => {
     let id = db.ref('iot2/user').push().key;
     console.log(id);
     addData(name, desig, id);
-
+    
+    
     //  retrieve data of newly added user.
     db.ref('iot2/'+id).once('value').then(snap => {
         //  add it to client machine
         createNewNode(snap.val());
 
     });
-
-})
-
-db.ref().child('iot2').on('child_removed', snap => {
-    let data = snap.val();
-    alert(`Deleted from database!\nName:  ${data.name}\nDesignation: ${data.designation}`);
-    removeNode(data.name);
+    
 })
 
 
+
+
+
+//  create tag and show data there
 function createNewNode(data) {
     let outerWrapper = document.querySelector('.outputWrapper');
     let wrapper = document.createElement('div');
@@ -78,7 +94,16 @@ function createNewNode(data) {
     outerWrapper.appendChild(wrapper);   
 }
 
+//  remove tag using it's ID
 function removeNode(divName) {
     let removeDiv = document.getElementById(divName);
     removeDiv.remove();
+}
+
+//  add data to database  
+let addData = (name, desig, id) => {
+    db.ref('iot2/'+id).set({
+        name: name,
+        designation: desig
+    });
 }
