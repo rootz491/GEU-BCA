@@ -1,0 +1,143 @@
+:root {
+    --colorOne: #5E684C;
+    --colorTwo: #64CFAB;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+.wrapper {
+    background-image: linear-gradient(to right top, #5e684c, #68805c, #6d9a71, #6cb48b, #64cfab);
+}
+
+.title {
+    font-size: 3.5em;
+    text-align: center;
+    padding: 1rem;
+    color: var(--colorOne);
+}
+
+p {
+    color: whitesmoke;
+}
+
+#postWrapper {
+    padding: 1em;
+    min-height: 100vh;
+    width: 80%;
+    margin: auto;
+}
+
+#titlePost {
+    margin: 1.5rem auto;
+    position: relative;
+    padding: 1rem 0;
+    width: 80%;
+}
+
+.post {
+    margin: 2.5em auto;
+    margin-bottom: 5rem;
+    width: 80%;
+    position: relative;
+    padding: 1rem 0;
+}
+
+.post::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--colorOne);
+    height: 2px;
+    width: 60%;
+}
+
+.post::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--colorOne);
+    height: 2px;
+    width: 40%;
+}
+
+#postTitle {
+    font-size: 2.5rem;
+    color: #051937;
+}
+
+#postLikes {
+    position: absolute;
+    right: 0;
+    top: 1rem;
+}
+
+#postLikes::first-letter {
+    color: rgb(240, 78, 78);
+}
+
+#postBody {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+#postAuthor {
+    text-align: right;
+    font-size: 2rem;
+    color: #A8EB12;
+}
+
+#otherPost > div {
+    padding: 1em;
+    min-height: 20vh;
+    width: 80%;
+    margin: auto;
+}
+
+#otherPost > div > h1 {
+    text-align: center;
+    font-size: 3.5rem;
+    color: var(--colorOne);
+}
+
+.postInput {
+    width: 80%;
+    margin: auto;
+    padding: 4rem 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+form > input, form > textarea, button {
+    padding: .3rem;
+    font-size: 1.3rem;
+}
+
+input:active, input:focus, textarea:active, textarea:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 600px) {
+    #postLikes {
+        position: static;
+    }
+}
+
+
+

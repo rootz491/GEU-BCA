@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+    <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
+    <title>List of data</title>
+</head>
+<body>
+
+
+
+
+    <div class="wrapper">
+        
+        <h1 class="title">POST WALL</h1>
+        
+        <div id="postWrapper">
+           <!--
+            <div class="post">
+                <h1 id="postTitle">
+                    Example post
+                </h1>
+                <h1 id='postLikes'>
+                    ❤
+                </h1>
+                <p id="postBody">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem reprehenderit molestias at saepe sapiente similique ratione? Voluptas enim, eum molestiae quo inventore mollitia! Quis enim esse modi, quisquam odit autem?
+                </p>
+                <h2 id="postAuthor">
+                    Anonymous
+                </h2>
+            </div>
+            -->
+        </div>
+
+        <hr>
+        <div id="otherPost">
+            <div id="oldestPost">
+                <h1>Oldest Post</h1>
+            </div>
+            <div id="latestPost">
+                <h1>Latest Post</h1>
+            </div>
+            <div id="likeSortPost">
+                <h1>Like complex Queries</h1>
+            </div>
+            <div id="ascendingOrderedPost">
+                <h1>A-Z</h1>
+            </div>
+            <div id="devPost">
+                <h1>Post By DEV</h1>
+            </div>
+        </div>
+        <hr>
+
+        <div class="postInput">
+            <h1 class="title"> Write your post </h1>
+            <form>
+                <input type="text" placeholder="Title" id="postTitleInput" required>
+                <textarea id="postTextInput" cols="30" placeholder="content ..." rows="10" required></textarea>
+                <input type="text" placeholder="Author" id="postAuthorInput" required>
+                <button id="submitButton" type="submit">submit</button>
+            </form>
+        </div>
+
+    </div>
+
+
+    
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-database.js"></script>
+    
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyALjEYXMUR9Rx6qEWFO1yac0suXRx2rhR4",
+            authDomain: "iot-project-491.firebaseapp.com",
+            databaseURL: "https://iot-project-491.firebaseio.com",
+            projectId: "iot-project-491",
+            storageBucket: "iot-project-491.appspot.com",
+            messagingSenderId: "96196344655",
+            appId: "1:96196344655:web:252d4b1c19ad12c4f0a33a"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+
+</body>
+</html>
