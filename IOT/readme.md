@@ -601,12 +601,80 @@
     ->  function addBy2(input) { return input + 2; }
         const addBy2 = input => input+2; 
         both are same 
-    ->  
+      
 
 
+### nodeMCU lecture
+    
+    *   INTRODUCTION:   
+    ->  digital or GPIO pins
+    ->  some D1, D2 etc are also labeled as 
+    ->  nodeMCU have only one analog input.
+    ->  ADC0 located on left most side.
 
+    *   first time nodeMCU Arduino setup:
+    1   File -> preferences -> additional board manager -> url
+    2   Tools -> boards -> board manager -> ESP8266 -> install
+    3   Tools -> boards -> NODEMCU 1.0 ->      
+    4   tools -> post: 'COM3'
+    NOW, nodeMCU is Setup now!!!
 
+    URL:    http://arduino.esp8266.com/stable/package_esp8266com_index.json
 
+#### IR sensor {study}
+    >   used to transmit signal throgh rays.
+    >   and there will be a reciever that recieves transmitted light.
+    >   range of reflection is 15cm atmost.
+    >   if we need more range, use ultraSonic sensor (HC-SR04)
+    >   if some obsticle is in range of IR sensor. then it will give output.
+    >   so when we get signals, it is very few signal. so we need amplifier. And luckily it is alreay present in IR sensor (LM-939).
+    >    
+
+#### projects/practical
+    
+##### 1 - 2 {LED on & BLINK}
+    
+    >   setup() -> first pin DO to output mode :           pinMode(D0, OUTPUT);
+    >   loop()  -> give supply:          digitalWrite(D0, 1);
+    >   then upload file to MCU.
+    >   can also give some delay for blinking.
+    >   delay(1000);
+    '''
+        void setup() {
+          pinMode(D0, OUTPUT);  //  set pin to output
+        }
+        void loop() {
+          digitalWrite(D0, 1);  //  give supply
+          delay(1000);          //  delay for blinking
+          digitalWrite(D0, 0);
+          delay(1000);
+        }
+    '''
+##### 3 {PWM effect}
+    
+'''
+    int k=0;
+    void setup() {
+      pinMode(D2, OUTPUT);
+    }
+    void loop() {
+      while(k<1024) {
+        analogWrite(D2, k);
+        k+=10;
+        delay(100);
+        if(k == 1023) {
+          k=0;  
+        }
+      }
+    }
+'''
+### 4 {IR sensor}
+    
+    >   IR sensor have 3 pins: 
+            pin 1:  output
+            pin 2:  grd
+            pin 3:  vcc/5v
+    >   
 
 
 
