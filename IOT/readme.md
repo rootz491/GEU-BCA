@@ -595,7 +595,6 @@
     ->  here we'll study about HTML.    :P
         *   create index.html
 
-
 ### lecture 19
     
     ->  function addBy2(input) { return input + 2; }
@@ -604,23 +603,22 @@
       
 
 
-### nodeMCU lecture
+### [nodeMCU] lecture 20
     
     *   INTRODUCTION:   
-    ->  digital or GPIO pins
-    ->  some D1, D2 etc are also labeled as 
-    ->  nodeMCU have only one analog input.
-    ->  ADC0 located on left most side.
-
+            ->  digital or GPIO pins
+            ->  some D1, D2 etc are also labeled as 
+            ->  nodeMCU have only one analog input.
+            ->  ADC0 located on left most side.
     *   first time nodeMCU Arduino setup:
-    1   File -> preferences -> additional board manager -> url
-    2   Tools -> boards -> board manager -> ESP8266 -> install
-    3   Tools -> boards -> NODEMCU 1.0 ->      
-    4   tools -> post: 'COM3'
-    NOW, nodeMCU is Setup now!!!
-
+            1   File -> preferences -> additional board manager -> url
+            2   Tools -> boards -> board manager -> ESP8266 -> install
+            3   Tools -> boards -> NODEMCU 1.0 ->      
+            4   tools -> post: 'COM3'
+            NOW, nodeMCU is Setup now!!!
+```
     URL:    http://arduino.esp8266.com/stable/package_esp8266com_index.json
-
+```
 #### IR sensor {study}
     >   used to transmit signal throgh rays.
     >   and there will be a reciever that recieves transmitted light.
@@ -628,9 +626,8 @@
     >   if we need more range, use ultraSonic sensor (HC-SR04)
     >   if some obsticle is in range of IR sensor. then it will give output.
     >   so when we get signals, it is very few signal. so we need amplifier. And luckily it is alreay present in IR sensor (LM-939).
-    >    
 
-#### projects/practical
+#### projects/practicals
     
 ##### 1 - 2 {LED on & BLINK}
     
@@ -639,47 +636,65 @@
     >   then upload file to MCU.
     >   can also give some delay for blinking.
     >   delay(1000);
-    '''
-        void setup() {
-          pinMode(D0, OUTPUT);  //  set pin to output
-        }
-        void loop() {
-          digitalWrite(D0, 1);  //  give supply
-          delay(1000);          //  delay for blinking
-          digitalWrite(D0, 0);
-          delay(1000);
-        }
-    '''
+```
+void setup() {
+  pinMode(D0, OUTPUT);  //  set pin to output
+}
+void loop() {
+  digitalWrite(D0, 1);  //  give supply
+  delay(1000);          //  delay for blinking
+  digitalWrite(D0, 0);
+  delay(1000);
+}
+```
 ##### 3 {PWM effect}
+```
+int k=0;
+void setup() {
+  pinMode(D2, OUTPUT);
+}
+void loop() {
+  while(k<1024) {
+    analogWrite(D2, k);
+    k+=10;
+    delay(100);
+    if(k == 1023) {
+      k=0;  
+    }
+  }
+}
+```
+
+#### lecture 21
     
-'''
-    int k=0;
-    void setup() {
-      pinMode(D2, OUTPUT);
-    }
-    void loop() {
-      while(k<1024) {
-        analogWrite(D2, k);
-        k+=10;
-        delay(100);
-        if(k == 1023) {
-          k=0;  
-        }
-      }
-    }
-'''
-### 4 {IR sensor}
+    *   IR sensor
+        ->  so when light reflects to reciever, it's not sufficient to trigger any event. so we amplify the signal recieved by reciever. (via op-amp)
+        ->  refer to PDF. 
+##### 4 {IR sensor}   *PROJECT_CONTINUED*
     
     >   IR sensor have 3 pins: 
             pin 1:  output
             pin 2:  grd
             pin 3:  vcc/5v
-    >   
+```
+int z=0;
+void setup() {
+     pinMode(D4, INPUT);
+     serial.begin(98600);
+}
+void loop() {
+    k = digitalRead(D4);
+    k = !k;
+    if(k==1) {
+        z+=1;
+        serial.println(Z);
+        delay(400);
+    }
+}
+```
 
-
-
-
-
+#### lecture 22  (next lecture)
+##### nodeMCU internet connectivity part
 
 
 
@@ -798,4 +813,4 @@
         >   firebase init
         >   firebase emulators:start
         >   firebase deploy
-        >   
+        >   firebase deploy --only hosting,database
