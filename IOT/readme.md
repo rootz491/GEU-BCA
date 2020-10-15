@@ -665,7 +665,7 @@ void loop() {
 }
 ```
 
-#### lecture 21
+### lecture 21
     
     *   IR sensor
         ->  so when light reflects to reciever, it's not sufficient to trigger any event. so we amplify the signal recieved by reciever. (via op-amp)
@@ -693,7 +693,7 @@ void loop() {
 }
 ```
 
-#### lecture 22  (next lecture)
+### lecture 22  (next lecture)
 ##### nodeMCU internet connectivity part
 
 
