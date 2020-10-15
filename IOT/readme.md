@@ -694,7 +694,35 @@ void loop() {
 ```
 
 ### lecture 22  (next lecture)
-##### nodeMCU internet connectivity part
+#### nodeMCU internet connectivity part
+    
+    >   connectivity:
+        1.  local server
+        2.  Third party service - Thingspeak, Blynk, adafruit
+        3.  Global - Firebase, AWS, IBM watson
+    >   LOCAL SERVER:
+        ->  communication b/w two nearby devices, like shareIt.
+        ->  devices must be on same network.
+        *   PHONE HOTSPOTS [ or router]
+            ->  name of network: SSID (service set identifier)
+            ->  pwd of network:   1234
+        *   RECIEVING PHONE
+            1.  search of Hotspot
+            2.  match the SSID (name of hotspots)
+            3.  enter password
+            4.  then phone says, "obtaining IP address".
+            5.  meaning that if device will connect to any network, the first thing it will look for will be network's IP addess.
+    >   now to summarize the process and relate it with nodeMCU, here it is
+    >   first upload html file to nodeMCU,
+    >   use nodeMCU as a little server (like apache tomcat or NGNIX)
+    >   then make a local network using router or phone's hotspot
+    >   then copy SSID of network and password and add to the code that we will be going to write on nodeMCU, so that it can connect to network.
+    >   now once nodeMCU is connected, take it i.p. address and search on chrome of any connected device, even in the Host's browser.
+    >   you'll be able to see that hosted HTML page of nodeMCU.
+
+
+
+
 
 
 
