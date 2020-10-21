@@ -720,7 +720,85 @@ void loop() {
     >   now once nodeMCU is connected, take it i.p. address and search on chrome of any connected device, even in the Host's browser.
     >   you'll be able to see that hosted HTML page of nodeMCU.
 
+### lecture 23 [& lecture 24]
+#### nodeMCU code for connecting to internet:
 
+```
+#include<ESP8266WiFi.h>
+#define ssid "racka"
+#define pass "123456"
+#define port 80
+WiFiServer server(port);
+void setup() {
+    Serial.begin(115200);
+    WiFi.begin(ssid, pass);
+    Serial.println('connecting to network ...');
+    while(WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print('.');
+    }
+    Serial.println("connected!");
+    server.begin();
+    Serial.print("\nuse this URL:");
+    Serial.print(WiFi.localIP());
+}
+void loop() {
+    WiFiClient client = server.available();
+    if(!client)
+        return;
+    client.print("Hello from nodeMCU");
+}
+```
+##### Breaking code down
+    >   first of all, include basic standard header file for nodeMCU
+    >   define constants like SSID (name of network) & password.
+    >   WiFiServer is pre-defined class and we are creating an instance 'server' with port '80', and that's how we are initializing a server.
+    >   WiFi.begin(ssid, pass)  will connect to network.
+    >   WiFi.status();  shows the current status of WiFi.
+            if(connected)   ->  return WL_CONNECTED
+            if(!connected)  ->  return NO_SHIELD    (due to wrong ssid or pass)
+            if(disconnected) -> return WL_DISCONNECTED
+    >   in while loop, we will wait untill MCU are connected to network.
+    >   server.begin();  to begin the server.
+    >   WiFi.localIP()  will return i.p. address of nodeMCU
+
+
+### lecture 24
+    
+    >   let's connect nodeMCU to network and use it as server:
+    >   first, change SSID and PASSWORD macro to corresponding network name and password. 
+    >   upload code to nodeMCU.
+    >   then focus on client.print() function.
+    >   this fuction will print text to main site page.
+    >   here if we type some html code, it will render and display that code to main page of site hosted in nodeMCU I.P. address.
+    >   write html code, now after writing html.
+    >   convert text to cpp string format using some converter.
+    >   then upload whole arduino code to nodeMCU.
+
+### lecture 25
+    
+    >   to manipulate user input, we have to do it through URL:
+        steps:    fetch URL   ->   perform filtering
+    .
+        1.  to fetch URL:
+```
+            string request = client.readStringUntil('\r');
+                        
+```
+            \r :  carriage return
+            \n :  new line
+        2.  to perform URL filtering:
+            ->  function 'indexOf()':   return index of perticular character or string.
+                int index = string.indexOf('H');
+```         code 
+            if(request.indexOf('/ON') != -1) {   //  check for 'ON' in URL
+                digitalWrite(D0, 1);
+            }
+            else if(request.indexOf('/OFF') != -1) {  // check for 'OFF' in URL
+                digitalWrite(D0, 0);
+            }
+```
+        
 
 
 

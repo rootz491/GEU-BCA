@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		label {
+			margin: 2em;
+			padding: 1em 1.5em;
+			background: red;
+		}
+	</style>
+	
+</head>
+<body>
+	<label for="switch">SWITCH</label>
+	<input type="checkbox" id="switch" name="switch">
+	<script>
+		document.querySelector('#switch').addEventListener('change', function(e) {
+			//console.log(e.target.checked);
+			if(e.target.checked) {
+				window.location.replace("file:///home/rootz491/Desktop/lecture%20notes/IOT/Web_Dev/switch.html#ON");
+				//console.log('ON')
+			}
+			if(!e.target.checked) {
+				window.location.replace("file:///home/rootz491/Desktop/lecture%20notes/IOT/Web_Dev/switch.html#OFF");
+				//console.log('OFF')
+			}
+		});
+	</script>
+</body>
+</html>
