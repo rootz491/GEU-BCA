@@ -82,7 +82,8 @@
             7. while(1)  ->  to get continuous output!
     
     SAMPLE CODE  -----   blink LED  
-'''        ##include<mega16.h>
+```c++
+            ##include<mega16.h>
             void main() {
                 PORTC = 0b00010000;   (port initialization)
                 DDTC = 0b00010000;
@@ -90,7 +91,7 @@
                     PORTC.4=1;   (1 for supply)
                 }
             }
-'''
+```
 
     SOFTWARES
         *   Codevision - to convert code into machine lang. 
@@ -130,7 +131,7 @@
                               ->    clean the C file. (code from scratch)
                          
         ---------------------- START CODING ----------------------    
-'''
+```c++
         ##include<mega16.h>
         void main() {
             PORTC = 0b00000001;     //  initialize port
@@ -139,8 +140,7 @@
                 PORTC.0=1;
             }
         }
-'''
-    
+``` 
     ->  from above menu, click on 'build all project files'.
     ->  Dialog box appear (will show some info and error )
     ->  if error exist, 'ERROR DETAILS' will appear on side-screen.
@@ -151,7 +151,7 @@
     ->  configure Frequency.
     FINALLY, Run the simulation by clicking on left-bottom button (triangle). And bulb will glow!
     GLOW LED at PC0, PA0, PB4 ports. < CODE >
-'''
+```c++
                     ##include<mega16.h>
                     void main() {
                     PORTA=0b00000000;
@@ -166,7 +166,7 @@
 >                       PORTC.0=1;
 >                   }
 >             }
-'''
+```
     ASSIGNMENT -> PD0 : LED, PD3 : LED, PC1 : LED, PC2 : LED, PC3 : LED, PD1 : LED, PA7 : LED   { GLOW THE LED } // Assignment done!
 
 
@@ -202,7 +202,7 @@
         ->  we have to identify ourselves that in which direction motor moves clockwise and anti-clockwise.
         ->  keyword: 'DC MOTOR' to find motor,  choose type 'ACTIVE'.
         *   simple code to RUN the motor clockwise: {one terminal of motor is connected to PORTC.0 and other terminal to GROUND}
-        '''
+```c++
         void main () {
             PORTC=0b00000000;
             DDRC=0b00000001;
@@ -210,7 +210,7 @@
                 PORTC.0=1;
             }
         }
-        '''
+```
         ->  assignment of some projects. // DONE
 
 
@@ -273,9 +273,8 @@
     *   LCD header files: details.
         --> How to make header files.
         --> STANDARD SYNTAX
-        --> hello.h     {HEADER FILE}
-    
-    '''
+        --> hello.h     {HEADER FILE}    
+```c++
             ##ifndef _hello_h_
             ##define _hello_h_
     
@@ -283,23 +282,23 @@
             function definition
     
             ##endif
-    '''
+```
             ---------------------
     *   example: switch1.h  ->  PORTC.0  {Switch 1}
     
-    '''
-                ##ifndef _switch1_h_
-                ##define _switch1_h_
-                
-                void myswitch();
-                void myswitch() {
-                    PO
-                    RTC.0=1;
-                    DDRC.0=0;
-                }
-                
-                ##endif
-    ''' 
+```c++
+                 ##ifndef _switch1_h_
+                 ##define _switch1_h_
+                 
+                 void myswitch();
+                 void myswitch() {
+                     PO
+                     RTC.0=1;
+                     DDRC.0=0;
+                 }
+                 
+                 ##endif
+``` 
     
     ASSIGNMENTS :-
         lcd_6d()       ->   create
@@ -310,14 +309,15 @@
 ### lecture 10
     
     *   reading datasheel for LCD
-    
-    int lcd_max(int a, int b) {
-        if(a>b)
-            lcd_3d(a);
-        else
-            lcd_3d(b);
-    }
-    
+```c++
+        int lcd_max(int a, int b) {
+            if(a>b)
+                lcd_3d(a);
+            else
+                lcd_3d(b);
+        }
+        
+```
     must read data sheets thoroughly!
     
 #### USART: new topic
@@ -373,9 +373,8 @@
     
     ->  calculating baud rate!   { Refer to pdf }
     
-    ->  function to initialize UART
-    
-        '''
+    ->  function to initialize UART 
+```c++
             void uart_init() {
                 UCSRA = 0b00000000;     //  Transmission default
                 UCSRB = 0b00011000;     //  
@@ -383,14 +382,13 @@
                 UBRRH = 0;
                 UBRRL = 51;
             }
-        '''
-    
+```
     ->  function to reciever and transmission in next class.
 
 ### lecture 12
     
     ->  function to transmit and recieve data
-        '''
+```c++        
             void uart_tx(char d) {
                 UDR = d;
                 while ((UCSRA & 0b01000000) == 0);
@@ -401,8 +399,7 @@
                 return UDR;
                 delay_ms(100);
             }
-        '''
-    
+```
     ->  if vitual terminal not found:   debug > virtual terminal {last}
     
     Assignment:
@@ -496,14 +493,15 @@
                     }
     ->  Next is 'motor'
         *   CODE:                           {   diagram in PDF   }
-                    void setup(){                              
-                        digitalWrite(D0, 1);    //  motor rotate clock-wise.
-                        digitalWrite(D1, 0);
-                    }
-                    void loop() {               //  no need of repeating work
-                        //  empty
-                    }
-    
+```c++
+void setup(){                              
+    digitalWrite(D0, 1);    //  motor rotate clock-wise.
+    digitalWrite(D1, 0);
+}
+void loop() {               //  no need of repeating work
+    //  empty
+}
+```
     ->  Pulse Width Modulation (PWM):           [   IMP. TOPIC  ]
         
         *   technique of sending Data through signal/pulses.
@@ -517,6 +515,8 @@
         FORMULA for duty cycle:-    refer to PDF
     
     *   CODE:
+
+```c++
                 void setup() {
                     p = 0;
                     while (p < 1024) {
@@ -526,7 +526,7 @@
                     }
                 }
                 void loop();
-
+```
 
 ### lecture 17
     
@@ -616,7 +616,7 @@
             3   Tools -> boards -> NODEMCU 1.0 ->      
             4   tools -> post: 'COM3'
             NOW, nodeMCU is Setup now!!!
-```
+```javascript
     URL:    http://arduino.esp8266.com/stable/package_esp8266com_index.json
 ```
 #### IR sensor {study}
@@ -636,7 +636,7 @@
     >   then upload file to MCU.
     >   can also give some delay for blinking.
     >   delay(1000);
-```
+```c++
 void setup() {
   pinMode(D0, OUTPUT);  //  set pin to output
 }
@@ -648,7 +648,7 @@ void loop() {
 }
 ```
 ##### 3 {PWM effect}
-```
+```c++
 int k=0;
 void setup() {
   pinMode(D2, OUTPUT);
@@ -676,7 +676,7 @@ void loop() {
             pin 1:  output
             pin 2:  grd
             pin 3:  vcc/5v
-```
+```c++
 int z=0;
 void setup() {
      pinMode(D4, INPUT);
@@ -722,8 +722,7 @@ void loop() {
 
 ### lecture 23 [& lecture 24]
 #### nodeMCU code for connecting to internet:
-
-```
+```c++
 #include<ESP8266WiFi.h>
 #define ssid "racka"
 #define pass "123456"
@@ -781,16 +780,15 @@ void loop() {
         steps:    fetch URL   ->   perform filtering
     .
         1.  to fetch URL:
-```
-            string request = client.readStringUntil('\r');
-                        
+```c++
+            string request = client.readStringUntil('\r');                  
 ```
             \r :  carriage return
             \n :  new line
         2.  to perform URL filtering:
             ->  function 'indexOf()':   return index of perticular character or string.
                 int index = string.indexOf('H');
-```         code 
+```c++
             if(request.indexOf('/ON') != -1) {   //  check for 'ON' in URL
                 digitalWrite(D0, 1);
             }
@@ -798,15 +796,26 @@ void loop() {
                 digitalWrite(D0, 0);
             }
 ```
-        
 
-
-
-
-
-
-
-
+### lecture 26
+    
+    >   thingSpeak
+    >   blynk
+    >   Blynk + IFTTT  ->   voice control home automation system
+    
+    >   let's do it one by one.
+#### thingSpeak:
+    >   thingSpeak is organised by MatLab.
+    
+#### blynk:
+    >   go to playstore -> download 'Blynk'
+    >   go to 'blynk.io'
+    >   blynk library (javascript)  ->  https://github.com/vshymanskyy/blynk-library-js.git
+    >   missed the le by MatLab.cture <blynk setup with arduino IDE part>
+    >   can't do anything coz i dont have nodeMCU
+    
+#### IFTTT:
+    >   
 
 
 
@@ -920,3 +929,25 @@ void loop() {
         >   firebase emulators:start
         >   firebase deploy
         >   firebase deploy --only hosting,database
+
+
+
+# Respberry Pi resources
+    
+    >   https://pypi.org/
+    >   https://pypi.org/project/raspberrypi-py/        <respberry pi>
+    >   https://pypi.org/project/firebase/              <firebase>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
