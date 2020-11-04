@@ -814,9 +814,29 @@ void loop() {
     >   missed the le by MatLab.cture <blynk setup with arduino IDE part>
     >   can't do anything coz i dont have nodeMCU
     
-#### IFTTT:
-    >   
 
+### lecture 27
+#### IFTTT:
+	>	if GOOGLE_ASSISTANT then WEB_HOOK
+    >   when working with IFTTT, make sure that email ID on google assistant and IFTTT must be same.
+	>	IFTTT is talking to BLYNK using 'webhooks' feature present in IFTT used to make a web request.
+   	>	then setup BLYNK in NODEmcu
+    
+    >	now in  IFTTT -> in webhook
+    	->  URL:	https://<blynk_IP_Address>/<blynk_project_token>/update/<pin_number>
+    	->	method:	PUT
+    	->	body:	["1"]
+    	->	save and finish
+    >	now, open google assistant to say 'turn on light'.
+
+```text
+	blynk ip address:	185.203.72.17
+	if pin is D4 then it's also GPIO 2 so we write D2 in URL.
+```
+#### ATmega8 practical
+	>	first connect atmega8 to USBdriver using some pins.	(mosi, miso, sck, grd, vcc, vss)
+	>	connect programmer to computer (light will turn on)
+	>	download 'extreme burner' software
 
 
 
@@ -923,6 +943,7 @@ void loop() {
     
     ->  firebase is to work with real-time database.
     ->  commands:
+```bash
         >   sudo npm install -g firebase-tools
         >   firebase login
         >   firebase init
@@ -930,17 +951,36 @@ void loop() {
         >   firebase deploy
         >   firebase deploy --only hosting,database
 
+```
 
-
-# Respberry Pi resources
+# Raspberry Pi resources
     
     >   https://pypi.org/
-    >   https://pypi.org/project/raspberrypi-py/        <respberry pi>
+    >   https://pypi.org/project/raspberrypi-py/        <raspberry pi>
     >   https://pypi.org/project/firebase/              <firebase>
+    
+    >   
 
 
 
+# Arduino
+## analog write
+    
+    >   analogRead(pin, range);     //  function to analog write.
+    
+    >   where PIN that works with analog data;
+    >   and RANGE is b/w 0 and 255.
+    >   0 -> 0.0 v
+    >   255 -> max_volt (3.3 v OR 5.0 v)
 
+## ohm's law
+    
+    >   voltage (v) = current (I) * resistance (r)
+
+    >   think of it like water flowing through pipe.
+    >   pressure will be VOLTAGE, so more the voltage is higher the flow of electrons (therefore, current)
+    >   so thickness is like RESISTANCE so smaller the resistance is the greater voltage and lower flow of current
+    >   
 
 
 
