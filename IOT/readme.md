@@ -1017,30 +1017,26 @@ void loop() {
 	feeling very happy.
 
 ### problem:
-		->	as django use SQLite as database but i've haven't installed that.
-		->	so i tried to install it usingn pip command.
-		->	but it doesn't work!!!
-		->	i first visit:	https://pypi.org/project/django-s3-sqlite/
-		->	then i went to github repo  'django-s3-sqlite' :  https://github.com/FlipperPA/django-s3-sqlite/tree/0.0.3
-		->	there i read this:
-
+	->	as django use SQLite as database but i've haven't installed that.
+	->	so i tried to install it usingn pip command.
+	->	but it doesn't work!!!
+	->	i first visit:	[a link](https://pypi.org/project/django-s3-sqlite/)
+	->	then i went to github repo  'django-s3-sqlite' :  [a link](https://github.com/FlipperPA/django-s3-sqlite/tree/0.0.3)
+	->	there i read this:
 ```
 	Newer versions of Django (v2.1+) require a newer version of SQLite (3.8.3+) than is available on AWS Lambda instances (3.7.17).
 
 	Because of this, you will need to download the file _sqlite3.so (available in the root of this repository) and put it at the root of your Django project.
 ```
-
-	->	so i installed the file:	https://github.com/FlipperPA/django-s3-sqlite/blob/0.0.3/_sqlite3.so
-
+	->	so i installed the file:	[a link](https://github.com/FlipperPA/django-s3-sqlite/blob/0.0.3/_sqlite3.so)
 	->	and pasted it into root of django project
-
 	->	and now it worked~! 
 
 ### starting first webapp:
 
 	>	im following MDN for this first project.
 	>	project will be 'LocalLibrary'
-	>	full project:	https://github.com/mdn/django-locallibrary-tutorial
+	>	full project:	[a link](https://github.com/mdn/django-locallibrary-tutorial)
 
 	->	setting up basics:
 
@@ -1153,10 +1149,10 @@ void loop() {
 #### Running database migrations
 	
 	>	Running database migrations
-
+```bash	
 		$ python3 manage.py makemigrations
 		$ python3 manage.py migrate
-
+```
 	>	'makemigrations' command creates (but does not apply) the migrations for all applications installed in project.
 
 	>	'migrate' command is what applies the migrations to your database.
