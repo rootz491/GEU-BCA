@@ -833,11 +833,15 @@ void loop() {
 	blynk ip address:	185.203.72.17
 	if pin is D4 then it's also GPIO 2 so we write D2 in URL.
 ```
+
+### lecture 28 (last)
 #### ATmega8 practical
 	>	first connect atmega8 to USBdriver using some pins.	(mosi, miso, sck, grd, vcc, vss)
 	>	connect programmer to computer (light will turn on)
 	>	download 'extreme burner' software
-
+	>	refer to /Atmega-setup folder.
+	>	read that txt file
+	>	and also follow those pdf according to TXT file.
 
 
 
@@ -878,7 +882,7 @@ void loop() {
 
 
 # KEY-NOTES:
-    
+## my thoughts on How UART work !?!! 
     --> Rx is Reception meaning, UART is listrening for data, and after listening it. It will return it to micro-controler.
     
     --> Now in Micro-controller, Data is there, But if we want to use/print it somewhere, then we have to transmit it, that it, Tx.
@@ -979,186 +983,3 @@ void loop() {
     >   pressure will be VOLTAGE, so more the voltage is higher the flow of electrons (therefore, current)
     >   so thickness is like RESISTANCE so smaller the resistance is the greater voltage and lower flow of current
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# python
-
-## django3
-
-	>	to resolve django version conflict, i've installed virtualenvwrapper to work on some specific version of django on specific projects.
-
-### virtualenvwrapper commands:
-	
-	$ mkvirtualenv env_name			(create new enviroment)
-	$ deactivate					(to deactivate current enviroment)
-	$ workon						(list of all virtual enviroment)
-	$ workon env_name				(activate the specific python virtual enviroment)
-	$ rmvirtualenv env_name			(remove specified enviroment)
-
-	->	i've create virtualenv called 'django-iot'
-	->  in there, i'm installing django for my upcoming project
-	->  to check:	$ python3 -m django --version
-
-	>	it means that django is installed inside python virtual enviroment named 'django-iot'. outside of that, there's no django named package
-
-
-	so now after manny hours, i've resolved the error most probably
-	feeling very happy.
-
-### problem:
-	->	as django use SQLite as database but i've haven't installed that.
-	->	so i tried to install it usingn pip command.
-	->	but it doesn't work!!!
-	->	i first visit:	[a link](https://pypi.org/project/django-s3-sqlite/)
-	->	then i went to github repo  'django-s3-sqlite' :  [a link](https://github.com/FlipperPA/django-s3-sqlite/tree/0.0.3)
-	->	there i read this:
-```
-	Newer versions of Django (v2.1+) require a newer version of SQLite (3.8.3+) than is available on AWS Lambda instances (3.7.17).
-
-	Because of this, you will need to download the file _sqlite3.so (available in the root of this repository) and put it at the root of your Django project.
-```
-	->	so i installed the file:	[a link](https://github.com/FlipperPA/django-s3-sqlite/blob/0.0.3/_sqlite3.so)
-	->	and pasted it into root of django project
-	->	and now it worked~! 
-
-### starting first webapp:
-
-	>	im following MDN for this first project.
-	>	project will be 'LocalLibrary'
-	>	full project:	[a link](https://github.com/mdn/django-locallibrary-tutorial)
-
-	->	setting up basics:
-
-		$	django-admin startproject <project-name>
-		
-		>	project skeleton will be like:
-
-			<project-name>/				# root folder
-			    manage.py 				# main script to start server
-			    <project-name>/			# Website/project
-			        __init__.py 		# empty file that treat this directory as Python package.
-			        settings.py 		# website settings
-			        urls.py 			# site URL-to-view mappings
-			        wsgi.py 			# help application communicate with webserver
-			        asgi.py 			# asynchronous successor to WSGI
-
-		>	to createt specific application inside project.
-		
-		$	python3 manage.py startapp <app-name>
-
-		>	updated project directory should now look like this:
-			<project-name>/
-			    manage.py
-			    <project-name>/
-			    <app-name>/			# newly created application
-			        admin.py
-			        apps.py
-			        models.py
-			        tests.py
-			        views.py
-			        __init__.py
-			        migrations/		# automatically update database as  modify the models
-
-		>	after creating application, time to register:
-		>	go to 'django_projects/<project-name>/<project-name>/settings.py'
-		>	add the <app-name> to INSTALLED_APPS list. 
-		>	Then add a new line at the end of the list (comma)
-
-		>	example:
-```python
-			INSTALLED_APPS = [
-			    'django.contrib.admin',
-			    'django.contrib.auth',
-			    'django.contrib.contenttypes',
-			    'django.contrib.sessions',
-			    'django.contrib.messages',
-			    'django.contrib.staticfiles',
-			    '<app-name>', 
-			]
-```
-		>	next step will be setting up database. for that, first resolve issue by adding '_sqlite3.so' file in root of folder (read problem section for details)
-
-		>	then, everything related to database remains same as we are using 'sqlite'. so let's move on!
-
-		>	now setup TIME_ZONE, use this:
-
-```python
-			TIME_ZONE = 'Europe/London'
-```
-		>	setting up URL mapper (urls.py)
-
-		>	so add url to our new app.
-
-		>	in other words, open 'django_projects/<project-name>/<project-name>/urls.py'
-
-		>	 Use include() to add paths from the application 
-
-```python
-				from django.urls import include
-
-				urlpatterns += [
-				    path('<app-name>/', include('<app-name>.urls')),
-				]
-```
-		>	Add URL maps to redirect the base URL to our application
-
-```python
-				from django.views.generic import RedirectView
-				urlpatterns += [
-				    path('', RedirectView.as_view(url='catalog/', permanent=True)),
-				]
-```
-		>	to use static files like css, js.
-
-		>	Use static() to add url mapping to serve static files during development (only)
-
-```python
-				from django.conf import settings
-				from django.conf.urls.static import static
-
-				urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-```
-
-		>	now save and close this file.
-
-		>	then, create urls.py inside <app-name> folder and add this,
-
-```python
-				from django.urls import path
-				from . import views
-
-				urlpatterns = [
-
-				]
-```		
-		>	finally done with URL mapping!
-
-		>	At this point we have a complete skeleton project
-
-#### Running database migrations
-	
-	>	Running database migrations
-```bash	
-		$ python3 manage.py makemigrations
-		$ python3 manage.py migrate
-```
-	>	'makemigrations' command creates (but does not apply) the migrations for all applications installed in project.
-
-	>	'migrate' command is what applies the migrations to your database.
-
-	>	running the website
-
-		$ python3 manage.py runserver
-
-	
