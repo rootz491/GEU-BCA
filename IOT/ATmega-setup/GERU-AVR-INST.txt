@@ -1,0 +1,43 @@
+#How to work with AVR Board:
+1.) SOftwares:
+
+- Driver: USB to serial
+steps:
+1. connect your programmer to laptop
+2. open device manager
+3. follow the pdf
+4. disable device driver signature (pdf)
+
+- CV AVR - installed
+- Proteus - Installed
+- Extreme burner: 
+procedure to install: 
+a.) AVR programmer must be connected to laptop.
+b.) install --> yes
+
+- Khazama
+make sure the AVR programmer is connected to the laptop.
+
+
+# How to upload your code to AVR
+1.) make connections
+Program ---- AVR BOARD
+MOSI ------- MOSI
+MISO ------- MISO
+SCK  ------- SCK
+RST  ------- RST
+VCC  ------- VCC
+GND  ------- GND
+
+2. BE ready with code
+3. open extreme burner - to set frequency of atmega8
+4. open khazam
+
+
+
+
+
+
+
+
+
